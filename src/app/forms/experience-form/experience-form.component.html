@@ -1,0 +1,49 @@
+<div *ngIf="!deleted; else deleteForm">
+    <div class="modal-header">
+        <h5 class="modal-title">{{edit? "Editar experiencia" : "Crear nueva experiencia"}}</h5>
+        <button type="button" class="btn-close" (click)="activeModal.close()" aria-label="Close"></button>
+    </div>
+    <form [formGroup]="experienceForm" (ngSubmit)="edit? updateExperience(): addExperience()">
+        <div class="modal-body">
+            <div class="form-floating mb-3">
+                <input [formControl]="tareaRealizada" type="text" class="form-control" id="tareaRealizada"
+                    placeholder="Tarea realizada">
+                <label for="tareaRealizada">Tarea realizada / cargo</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input [formControl]="empresa" type="text" class="form-control" id="nombreEmpresa"
+                    placeholder="Nombre empresa">
+                <label for="nombreEmpresa">Nombre empresa</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input [formControl]="tiempoTrabajado" type="text" class="form-control" id="tiempoTrabajado"
+                    placeholder="Cantidad de tiempo trabajado">
+                <label for="tiempoTrabajado">Tiempo trabajado</label>
+            </div>
+            <div class="mb-3">
+                <label [formControl]="imagenEmpresa" for="formFile" class="form-label">Cambiar imagen</label>
+                <input class="form-control" type="file" id="formFile">
+            </div>
+            <div class="form-floating mb-3">
+                <textarea [formControl]="descripcion" class="form-control" placeholder="Descripción del trabajo"
+                    id="descripción"></textarea>
+                <label for="descripción">Descripción del trabajo</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="activeModal.close()">Cerrar</button>
+            <button type="submit" class="btn btn-primary">Guardar
+                cambios</button>
+        </div>
+    </form>
+</div>
+
+<ng-template #deleteForm>
+    <div class="modal-header">
+        <h5 class="modal-title">¿Borrar el la experiencia?</h5>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="activeModal.close()">Salir</button>
+        <button type="submit" class="btn btn-primary" (click)="deleteExperience()">Borrar</button>
+    </div>
+</ng-template>

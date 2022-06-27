@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+/* Variable para los círculos */
+:root {
+    --max-length: 472;
+}
+
+/* el width máximo de la imagen para las secciones educación y experiencia*/
+.max-size {
+    max-width: 60px;
+    max-height: 60px;
+}
+
+/* acomodar el width del div de los botones */
+.width-fit {
+    width: fit-content;
+}
+
+.buttons-position {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* acomodar los botones para pantallas más chicas */
+@media (max-width: 991.98px) { 
+    .buttons-position {
+        top: 20%;
+        right: 5%;
+    }
+}

@@ -1,0 +1,22 @@
+<div class="container position-relative">
+  <div class="row">
+    <div class="col-lg-4">
+      <h4 class="fs-2 mb-3">{{experience.tareaRealizada}}</h4>
+      <div class="d-flex align-items-center mb-2">
+        <p class="fs-4 me-5 pt-2">{{experience.empresa}}</p>
+        <img *ngIf="experience.fotoEmpresa" class="max-size" src="{{experience.fotoEmpresa}}" alt="logo empresa" />
+      </div>
+      <p class="fs-4 text-muted">{{experience.tiempoTrabajado}}</p>
+    </div>
+
+    <div class="col-lg-8 pt-3 pe-5">
+      <p class="fs-4">
+        {{experience.descripcion}}
+      </p>
+    </div>
+    <div class="position-absolute buttons-position d-flex flex-column width-fit">
+      <fa-icon class="pb-4" [icon]=" faPenClip" size="lg" (click)="openModal(true, false)"></fa-icon>
+      <fa-icon [icon]="faTrash" size="lg" (click)="openModal(false, true)"></fa-icon>
+    </div>
+  </div>
+</div>

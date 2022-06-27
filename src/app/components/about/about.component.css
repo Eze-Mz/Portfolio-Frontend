@@ -1,0 +1,15 @@
+.perfil-img {
+    max-width: 200px;
+    max-height: 200px;
+    display: block;
+    margin: auto;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.space {
+    height: 100px;
+}

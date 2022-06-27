@@ -1,0 +1,68 @@
+{
+  "experiences": [
+    {
+      "id": 3,
+      "idUsuario": 1,
+      "tareaRealizada": "administraci",
+      "empresa": "Empresa blablabla",
+      "fotoEmpresa": "",
+      "tiempoTrabajado": "2018-2020",
+      "descripcion": ""
+    },
+    {
+      "idUsuario": 1,
+      "tareaRealizada": "fghjf",
+      "empresa": "hgjfhgf",
+      "fotoEmpresa": "",
+      "tiempoTrabajado": "hjgf",
+      "descripcion": "ghf",
+      "id": 6
+    },
+    {
+      "idUsuario": 1,
+      "tareaRealizada": "aaaaaaaaaaaaaaa",
+      "empresa": "aaaaaaa",
+      "fotoEmpresa": "",
+      "tiempoTrabajado": "aaaaaa",
+      "descripcion": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "id": 7
+    },
+    {
+      "idUsuario": 1,
+      "tareaRealizada": "hjghjkg",
+      "empresa": "gjkhgkhjg",
+      "fotoEmpresa": "",
+      "tiempoTrabajado": "hgjghjg",
+      "descripcion": "hjgjhg",
+      "id": 8
+    },
+    {
+      "idUsuario": 1,
+      "tareaRealizada": "rtdrtd",
+      "empresa": "rdrtd",
+      "fotoEmpresa": "",
+      "tiempoTrabajado": "rtdtrd",
+      "descripcion": "trdtrd",
+      "id": 9
+    },
+    {
+      "idUsuario": 1,
+      "tareaRealizada": "eeeeeeeeee",
+      "empresa": "eee",
+      "fotoEmpresa": "",
+      "tiempoTrabajado": "eee",
+      "descripcion": "eeeeeeeeeeeee",
+      "id": 11
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
