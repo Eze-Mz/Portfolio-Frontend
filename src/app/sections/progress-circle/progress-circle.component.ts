@@ -1,18 +1,16 @@
 import { Component, DoCheck, ElementRef, Input, OnInit } from '@angular/core';
+import ISkill from 'src/app/Models/skill.model';
 import { ProgressCountService } from 'src/app/services/progress-count.service';
 
 @Component({
   selector: 'app-progress-circle',
   templateUrl: './progress-circle.component.html',
   styleUrls: ['./progress-circle.component.css'],
-  host: {
-    class:
-      'col-xl-3 col-md-4 my-3 d-flex justify-content-center shadow p-3 border',
-  },
 })
 export class ProgressCircleComponent implements DoCheck, OnInit {
   @Input() skillPercentage: number = 0;
   @Input() skill: string = 'skill';
+  @Input() item!: ISkill;
   percentage = 0;
   maxLength: number = parseInt(
     getComputedStyle(document.documentElement).getPropertyValue('--max-length')
@@ -34,6 +32,7 @@ export class ProgressCircleComponent implements DoCheck, OnInit {
   }
 
   ngOnInit(): void {
+    this.skillPercentage = this.item.porcentaje;
     const fill = this.calcCirlce(this.maxLength, this.skillPercentage);
     this.elementRef.nativeElement.style.setProperty('--fill', `${fill}`);
   }

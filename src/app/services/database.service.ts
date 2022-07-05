@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, tap, throwError } from 'rxjs';
 import IExperience from '../Models/experience.model';
+import IEducation from '../Models/education.model';
+import IProyect from '../Models/proyect.model';
+import ISkill from '../Models/skill.model';
 
 @Injectable({
   providedIn: 'root',
@@ -16,9 +19,11 @@ export class DatabaseService {
   constructor(private http: HttpClient) {}
   genericUrl = 'http://localhost:3000/';
 
-  getData(dataId: string): Observable<IExperience[]> {
+  getData(
+    dataId: string
+  ): Observable<(IExperience & IEducation & IProyect & ISkill)[]> {
     const url = this.genericUrl + dataId;
-    return this.http.get<IExperience[]>(url);
+    return this.http.get<(IExperience & IEducation & IProyect & ISkill)[]>(url);
   }
 
   addData(dataId: string, data: IExperience): Observable<IExperience> {

@@ -1,11 +1,4 @@
-import {
-  Component,
-  Input,
-  OnChanges,
-  OnInit,
-  Output,
-  EventEmitter,
-} from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { faTrash, faPenClip } from '@fortawesome/free-solid-svg-icons';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { GenericModalComponent } from 'src/app/forms/generic-modal/generic-modal.component';
@@ -21,8 +14,8 @@ import { DatabaseService } from 'src/app/services/database.service';
 export class ExperienceComponent implements OnInit {
   faTrash = faTrash;
   faPenClip = faPenClip;
-  @Input() pathId!: string;
-  @Input() experience!: IExperience;
+  @Input() sectionId!: string;
+  @Input() item!: IExperience;
   @Output() changedList = new EventEmitter<IExperience>();
 
   constructor(private modal: NgbModal, private database: DatabaseService) {}
@@ -31,8 +24,8 @@ export class ExperienceComponent implements OnInit {
     const modalRef = this.modal.open(GenericModalComponent);
     modalRef.componentInstance.edit = edit;
     modalRef.componentInstance.deleted = deleted;
-    modalRef.componentInstance.data = this.experience;
-    modalRef.componentInstance.pathId = this.pathId;
+    modalRef.componentInstance.data = this.item;
+    modalRef.componentInstance.pathId = this.sectionId;
     modalRef.closed.subscribe((res) => {
       console.log('closed observable');
       if (true) {

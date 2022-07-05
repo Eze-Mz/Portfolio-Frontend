@@ -7,8 +7,8 @@ import { ProyectComponent } from './proyect/proyect.component';
 import { SectionComponent } from './section/section.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ExperiencesListComponent } from './experiences-list/experiences-list.component';
 import { FormsModalsModule } from '../forms/forms-modals.module';
+import { ItemComponent } from './item/item.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,7 @@ import { FormsModalsModule } from '../forms/forms-modals.module';
     ProgressCircleComponent,
     ProyectComponent,
     SectionComponent,
-    ExperiencesListComponent,
+    ItemComponent,
   ],
   imports: [CommonModule, FontAwesomeModule, NgbModule, FormsModalsModule],
   exports: [
@@ -26,7 +26,6 @@ import { FormsModalsModule } from '../forms/forms-modals.module';
     ProgressCircleComponent,
     ProyectComponent,
     SectionComponent,
-    ExperiencesListComponent,
   ],
 })
 export class SectionsModule {}

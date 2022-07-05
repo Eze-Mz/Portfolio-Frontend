@@ -1,68 +1,122 @@
 {
   "experiences": [
     {
-      "id": 3,
-      "idUsuario": 1,
-      "tareaRealizada": "administraci",
-      "empresa": "Empresa blablabla",
-      "fotoEmpresa": "",
-      "tiempoTrabajado": "2018-2020",
-      "descripcion": ""
-    },
-    {
-      "idUsuario": 1,
-      "tareaRealizada": "fghjf",
-      "empresa": "hgjfhgf",
-      "fotoEmpresa": "",
-      "tiempoTrabajado": "hjgf",
-      "descripcion": "ghf",
-      "id": 6
-    },
-    {
-      "idUsuario": 1,
-      "tareaRealizada": "aaaaaaaaaaaaaaa",
-      "empresa": "aaaaaaa",
-      "fotoEmpresa": "",
-      "tiempoTrabajado": "aaaaaa",
-      "descripcion": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "id": 7
-    },
-    {
-      "idUsuario": 1,
-      "tareaRealizada": "hjghjkg",
+      "tarea": "hjghjkg",
       "empresa": "gjkhgkhjg",
-      "fotoEmpresa": "",
-      "tiempoTrabajado": "hgjghjg",
+      "imagen": "https://via.placeholder.com/80",
+      "tiempo": "hgjghjg",
       "descripcion": "hjgjhg",
-      "id": 8
+      "id": 2
     },
     {
-      "idUsuario": 1,
-      "tareaRealizada": "rtdrtd",
+      "tarea": "rtdrtd",
       "empresa": "rdrtd",
-      "fotoEmpresa": "",
-      "tiempoTrabajado": "rtdtrd",
+      "imagen": "",
+      "tiempo": "rtdtrd",
       "descripcion": "trdtrd",
-      "id": 9
+      "id": 3
     },
     {
-      "idUsuario": 1,
-      "tareaRealizada": "eeeeeeeeee",
+      "tarea": "eeeeeeeeee",
       "empresa": "eee",
-      "fotoEmpresa": "",
-      "tiempoTrabajado": "eee",
+      "imagen": "",
+      "tiempo": "eee",
       "descripcion": "eeeeeeeeeeeee",
-      "id": 11
+      "id": 4
     }
   ],
-  "comments": [
+  "education": [
+    {
+      "titulo": "fghjfyrttyruytr",
+      "institucion": "hgjfhgf",
+      "imagen": "https://via.placeholder.com/80",
+      "fechas": "hjgf",
+      "descripcion": "ghf",
+      "id": 1
+    },
+    {
+      "titulo": "hjghjkg",
+      "institucion": "gjkhgkhjg",
+      "imagen": "https://via.placeholder.com/80",
+      "fechas": "hgjghjg",
+      "descripcion": "hjgjhg",
+      "id": 2
+    },
+    {
+      "titulo": "rtdrtd",
+      "institucion": "rdrtd",
+      "imagen": "https://via.placeholder.com/80",
+      "fechas": "rtdtrd",
+      "descripcion": "trdtrd",
+      "id": 3
+    }
+  ],
+  "proyects": [
+    {
+      "nombre": "Proyecto 1",
+      "tecnologias": [
+        "angular",
+        "java",
+        "SQL"
+      ],
+      "imagen": "https://via.placeholder.com/1200x600",
+      "linkSitio": "hjgf",
+      "linkRepositorio": "hjgf",
+      "descripcion": "ghf",
+      "id": 1
+    },
+    {
+      "nombre": "Proyecto 2",
+      "tecnologias": [
+        "angular",
+        "java",
+        "SQL"
+      ],
+      "imagen": "https://via.placeholder.com/1200x600",
+      "linkSitio": "hgjghjg",
+      "linkRepositorio": "hjgf",
+      "descripcion": "hjgjhg",
+      "id": 2
+    },
+    {
+      "nombre": "Proyecto 3",
+      "tecnologias": [
+        "angular",
+        "java",
+        "SQL"
+      ],
+      "imagen": "https://via.placeholder.com/1200x600",
+      "linkSitio": "",
+      "linkRepositorio": "",
+      "descripcion": "trdtrd",
+      "id": 3
+    }
+  ],
+  "skills": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "habilidad": "angular",
+      "porcentaje": 70
+    },
+    {
+      "id": 1,
+      "habilidad": "angular",
+      "porcentaje": 70
+    },
+    {
+      "id": 1,
+      "habilidad": "angular",
+      "porcentaje": 70
+    },
+    {
+      "id": 1,
+      "habilidad": "angular",
+      "porcentaje": 70
+    },
+    {
+      "id": 1,
+      "habilidad": "angular",
+      "porcentaje": 70
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

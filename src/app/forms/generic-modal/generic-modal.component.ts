@@ -7,7 +7,7 @@ import IExperience from 'src/app/Models/experience.model';
   styleUrls: ['./generic-modal.component.css'],
 })
 export class GenericModalComponent implements OnInit {
-  pathId!: string;
+  sectionId!: string;
   edit = false;
   deleted = false;
   data!: IExperience;

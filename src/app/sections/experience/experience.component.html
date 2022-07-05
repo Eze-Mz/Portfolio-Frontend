@@ -1,17 +1,17 @@
-<div class="container position-relative">
+<div class="container position-relative" *ngIf="sectionId === 'experiences'">
   <div class="row">
     <div class="col-lg-4">
-      <h4 class="fs-2 mb-3">{{experience.tareaRealizada}}</h4>
+      <h4 class="fs-2 mb-3">{{item.tarea}}</h4>
       <div class="d-flex align-items-center mb-2">
-        <p class="fs-4 me-5 pt-2">{{experience.empresa}}</p>
-        <img *ngIf="experience.fotoEmpresa" class="max-size" src="{{experience.fotoEmpresa}}" alt="logo empresa" />
+        <p class="fs-4 me-5 pt-2">{{item.empresa}}</p>
+        <img *ngIf="item.imagen" class="max-size" src="{{item.imagen}}" alt="logo empresa" />
       </div>
-      <p class="fs-4 text-muted">{{experience.tiempoTrabajado}}</p>
+      <p class="fs-4 text-muted">{{item.tiempo}}</p>
     </div>
 
     <div class="col-lg-8 pt-3 pe-5">
       <p class="fs-4">
-        {{experience.descripcion}}
+        {{item.descripcion}}
       </p>
     </div>
     <div class="position-absolute buttons-position d-flex flex-column width-fit">

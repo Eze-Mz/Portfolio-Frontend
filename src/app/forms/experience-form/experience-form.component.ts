@@ -10,7 +10,7 @@ import IExperience from 'src/app/Models/experience.model';
   styleUrls: ['./experience-form.component.css'],
 })
 export class ExperienceFormComponent implements OnInit {
-  @Input() pathId!: string;
+  @Input() sectionId!: string;
   @Input() edit = false;
   @Input() deleted = false;
   @Input() data!: IExperience;
@@ -37,10 +37,10 @@ export class ExperienceFormComponent implements OnInit {
   ngOnInit(): void {
     if (this.data) {
       this.experienceForm.setValue({
-        tareaRealizada: this.data.tareaRealizada,
+        tareaRealizada: this.data.tarea,
         empresa: this.data.empresa,
-        imagenEmpresa: this.data.fotoEmpresa,
-        tiempoTrabajado: this.data.tiempoTrabajado,
+        imagenEmpresa: this.data.imagen,
+        tiempoTrabajado: this.data.tiempo,
         descripcion: this.data.descripcion,
       });
     }
@@ -51,16 +51,15 @@ export class ExperienceFormComponent implements OnInit {
       this.experienceForm.value;
 
     const newExperience = {
-      idUsuario: 1,
-      tareaRealizada: tareaRealizada,
+      tarea: tareaRealizada,
       empresa: empresa,
-      fotoEmpresa: '',
-      tiempoTrabajado: tiempoTrabajado,
+      imagen: '',
+      tiempo: tiempoTrabajado,
       descripcion: descripcion,
     };
 
     this.database
-      .addData(this.pathId, newExperience as IExperience)
+      .addData(this.sectionId, newExperience as IExperience)
       .subscribe(() => this.activeModal.close(true));
   }
 
@@ -68,19 +67,19 @@ export class ExperienceFormComponent implements OnInit {
     const { tareaRealizada, empresa, tiempoTrabajado, descripcion } =
       this.experienceForm.value;
 
-    this.data.tareaRealizada = tareaRealizada;
+    this.data.tarea = tareaRealizada;
     this.data.empresa = empresa;
-    this.data.tiempoTrabajado = tiempoTrabajado;
+    this.data.tiempo = tiempoTrabajado;
     this.data.descripcion = descripcion;
 
     this.database
-      .updateData(this.pathId, this.data)
+      .updateData(this.sectionId, this.data)
       .subscribe(() => this.activeModal.close());
   }
 
   deleteExperience() {
     this.database
-      .deleteData(this.pathId, this.data)
+      .deleteData(this.sectionId, this.data)
       .subscribe(() => this.activeModal.close('list changed'));
   }
 }

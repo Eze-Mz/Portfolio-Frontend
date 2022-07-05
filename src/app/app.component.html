@@ -5,26 +5,13 @@
 
 <div class="container">
   <app-about class="row"></app-about>
-  <app-experiences-list></app-experiences-list>
-
-  <app-section section="Educación">
-    <app-education></app-education>
-    <app-education></app-education>
-    <app-education></app-education>
+  <app-section sectionTitle="Experiencia" sectionId="experiences">
   </app-section>
 
-  <app-section section="Tecnologías">
-    <app-progress-circle [skillPercentage]="100" skill="Angular"></app-progress-circle>
-    <app-progress-circle [skillPercentage]="25" skill="JavaScript"></app-progress-circle>
-    <app-progress-circle [skillPercentage]="50" skill="TypeScript"></app-progress-circle>
-    <app-progress-circle [skillPercentage]="100" skill="Node"></app-progress-circle>
-    <app-progress-circle [skillPercentage]="25" skill="CSS"></app-progress-circle>
-    <app-progress-circle [skillPercentage]="50" skill="HMTL"></app-progress-circle>
-  </app-section>
+  <app-section sectionTitle="Educación" sectionId="education"></app-section>
 
-  <app-section section="Proyectos">
-    <app-proyect></app-proyect>
-    <app-proyect></app-proyect>
-  </app-section>
+  <app-section sectionTitle="Habilidades" sectionId="skills"></app-section>
+
+  <app-section sectionTitle="Proyectos" sectionId="proyects"></app-section>
 
   <app-footer class="container-fluid"></app-footer>

@@ -1,9 +1,8 @@
 export default interface IExperience {
   id: number;
-  idUsuario: number;
-  tareaRealizada: string;
+  tarea: string;
   empresa: string;
-  fotoEmpresa?: string;
-  tiempoTrabajado?: string;
+  imagen: string;
+  tiempo: string;
   descripcion: string;
 }
