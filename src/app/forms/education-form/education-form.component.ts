@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import IEducation from 'src/app/Models/education.model';
 import { DatabaseService } from 'src/app/services/database.service';
@@ -15,13 +15,13 @@ export class EducationFormComponent implements OnInit {
   @Input() deleted = false;
   @Input() data!: IEducation;
 
-  titulo = new FormControl('', [Validators.required]);
-  institucion = new FormControl('', [Validators.required]);
-  imagenInstitucion = new FormControl('');
-  fechas = new FormControl('');
-  descripcion = new FormControl('', [Validators.required]);
+  titulo = new UntypedFormControl('', [Validators.required]);
+  institucion = new UntypedFormControl('', [Validators.required]);
+  imagenInstitucion = new UntypedFormControl('');
+  fechas = new UntypedFormControl('');
+  descripcion = new UntypedFormControl('', [Validators.required]);
 
-  educationForm = new FormGroup({
+  educationForm = new UntypedFormGroup({
     titulo: this.titulo,
     institucion: this.institucion,
     imagenInstitucion: this.imagenInstitucion,

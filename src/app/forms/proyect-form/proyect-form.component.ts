@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import IProyect from 'src/app/Models/proyect.model';
 import { DatabaseService } from 'src/app/services/database.service';
@@ -15,14 +15,14 @@ export class ProyectFormComponent implements OnInit {
   @Input() deleted = false;
   @Input() data!: IProyect;
 
-  nombre = new FormControl('', [Validators.required]);
-  tecnologias = new FormControl('');
-  img_proyecto = new FormControl('');
-  link_sitio = new FormControl('');
-  link_repo = new FormControl('');
-  descripcion = new FormControl('', [Validators.required]);
+  nombre = new UntypedFormControl('', [Validators.required]);
+  tecnologias = new UntypedFormControl('');
+  img_proyecto = new UntypedFormControl('');
+  link_sitio = new UntypedFormControl('');
+  link_repo = new UntypedFormControl('');
+  descripcion = new UntypedFormControl('', [Validators.required]);
 
-  proyectForm = new FormGroup({
+  proyectForm = new UntypedFormGroup({
     nombre: this.nombre,
     tecnologias: this.tecnologias,
     img_proyecto: this.img_proyecto,

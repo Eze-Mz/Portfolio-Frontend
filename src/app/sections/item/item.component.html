@@ -1,8 +1,8 @@
 <!-- Experiencias -->
 <div class="container position-relative" *ngIf="sectionId === 'experiences'">
     <div class="row">
+        <h4 class="col-12 fs-2 mb-3">{{item.tarea}}</h4>
         <div class="col-lg-4">
-            <h4 class="fs-2 mb-3">{{item.tarea}}</h4>
             <div class="d-flex align-items-center mb-2">
                 <p class="fs-4 me-5 pt-2">{{item.empresa}}</p>
                 <img *ngIf="item.img_empresa" class="max-size" src="{{item.img_empresa}}" alt="logo empresa" />
@@ -10,15 +10,16 @@
             <p class="fs-4 text-muted">{{item.tiempo}}</p>
         </div>
 
-        <div class="col-lg-8 pt-3 pe-5">
+        <div class="col-lg-8 pe-5">
             <!--AGREGAR WORD WRAP: si alguien pone bbbbbbbbb todo junto, no hay nueva línea-->
             <p class="fs-4">
                 {{item.descripcion}}
             </p>
         </div>
         <div *ngIf="canEdit" class="position-absolute buttons-position d-flex flex-column width-fit">
-            <fa-icon class="pb-4" [icon]=" faPenClip" size="lg" (click)="openModal(true, false)"></fa-icon>
-            <fa-icon [icon]="faTrash" size="lg" (click)="openModal(false, true)"></fa-icon>
+            <fa-icon role='button' class="pb-4" [icon]=" faPenClip" size="lg" (click)="openModal(true, false)">
+            </fa-icon>
+            <fa-icon role='button' [icon]="faTrash" size="lg" (click)="openModal(false, true)"></fa-icon>
         </div>
     </div>
 </div>
@@ -26,45 +27,53 @@
 <!-- Educación -->
 <div class="container position-relative" *ngIf="sectionId === 'education'">
     <div class="row">
+        <h4 class="col-12 fs-2 mb-3">{{item.titulo}}</h4>
         <div class="col-lg-4">
-            <h4 class="fs-2 mb-3">{{item.titulo}}</h4>
             <div class="d-flex align-items-center mb-2">
-                <p class="fs-4 me-5 pt-2">{{item.institucion}}</p>
+                <p class="fs-4 pt-2 w-75">{{item.institucion}}</p>
                 <img *ngIf="item.img_inst" class="max-size" src="{{item.img_inst}}" alt="logo institución" />
             </div>
             <p class="fs-4 text-muted">{{item.fechas}}</p>
         </div>
 
-        <div class="col-lg-8 pt-3 pe-5">
+        <div class="col-lg-8 pe-5">
             <p class="fs-4">
                 {{item.descripcion}}
             </p>
         </div>
         <div *ngIf="canEdit" class="position-absolute buttons-position d-flex flex-column width-fit">
-            <fa-icon class="pb-4" [icon]="faPenClip" size="lg" (click)="openModal(true, false)"></fa-icon>
-            <fa-icon [icon]="faTrash" size="lg" (click)="openModal(false, true)"></fa-icon>
+            <fa-icon role='button' class="pb-4" [icon]="faPenClip" size="lg" (click)="openModal(true, false)"></fa-icon>
+            <fa-icon role='button' [icon]="faTrash" size="lg" (click)="openModal(false, true)"></fa-icon>
         </div>
     </div>
 </div>
 
 <!-- Habilidades -->
-<app-progress-circle *ngIf="sectionId === 'skills'" [item]="item" [canEdit]="canEdit"
-    (openModalEdit)="openModal(true, false)" (openModalDelete)="openModal(false, true)"></app-progress-circle>
+<div *ngIf=" sectionId==='skills'"
+    class="border shadow w-100 d-flex justify-content-center py-2 px-3 position-relative">
+    <app-progress-circle [item]=" item" [canEdit]="canEdit" (openModalEdit)="openModal(true, false)"
+        (openModalDelete)="openModal(false, true)">
+    </app-progress-circle>
+</div>
 
 <!-- Proyectos -->
-<div class="col position-relative" *ngIf="sectionId === 'proyects'">
+<div class="col position-relative py-4" *ngIf="sectionId === 'proyects'">
     <img class="proyect-img w-100" src="{{item.img_proyecto}}" alt="imagen proyecto" />
-    <h4 class="fs-3">Tecnologías</h4>
-    <div class="d-flex justify-content-between w-50">
-        <p class="fs-4" *ngFor="let el of separarTecnologias(item.tecnologias)">{{el}}</p>
+    <h4 class="mt-2">{{item.nombre}}</h4>
+    <p class="fs-5">{{item.descripcion}}</p>
+    <h4>Tecnologías utilizadas:</h4>
+    <div class="d-flex flex-wrap">
+        <p class="fs-5 me-5" *ngFor="let el of separarTecnologias(item.tecnologias)">{{el}}</p>
     </div>
 
     <div>
-        <a href="{{item.link_sitio}}" class="btn btn-success text-white">Visita el sitio</a>
-        <a href="{{item.link_repo}}" class="btn btn-success text-white ms-3">Mira el código</a>
+        <a *ngIf="item.link_sitio" target="_blank" rel="noopener noreferrer" href="{{item.link_sitio}}"
+            class="btn btn-success text-white">Visita el sitio</a>
+        <a *ngIf="item.link_repo" target="_blank" rel="noopener noreferrer" href="{{item.link_repo}}"
+            class="btn btn-success text-white ms-3">Mira el código</a>
     </div>
-    <div *ngIf="canEdit" class="position-absolute buttons-position d-flex flex-column width-fit">
-        <fa-icon class="pb-4" [icon]="faPenClip" size="lg" (click)="openModal(true, false)"></fa-icon>
-        <fa-icon [icon]="faTrash" size="lg" (click)="openModal(false, true)"></fa-icon>
+    <div *ngIf="canEdit" class="position-absolute buttons-proyect d-flex width-fit">
+        <fa-icon role='button' class="me-4" [icon]=" faPenClip" size="lg" (click)="openModal(true, false)"></fa-icon>
+        <fa-icon role='button' [icon]="faTrash" size="lg" (click)="openModal(false, true)"></fa-icon>
     </div>
 </div>

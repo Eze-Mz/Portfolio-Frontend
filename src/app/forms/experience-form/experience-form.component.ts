@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { DatabaseService } from 'src/app/services/database.service';
 import IExperience from 'src/app/Models/experience.model';
 
@@ -15,13 +15,13 @@ export class ExperienceFormComponent implements OnInit {
   @Input() deleted = false;
   @Input() data!: IExperience;
 
-  tareaRealizada = new FormControl('', [Validators.required]);
-  empresa = new FormControl('', [Validators.required]);
-  imagenEmpresa = new FormControl('');
-  tiempoTrabajado = new FormControl('');
-  descripcion = new FormControl('', [Validators.required]);
+  tareaRealizada = new UntypedFormControl('', [Validators.required]);
+  empresa = new UntypedFormControl('', [Validators.required]);
+  imagenEmpresa = new UntypedFormControl('');
+  tiempoTrabajado = new UntypedFormControl('');
+  descripcion = new UntypedFormControl('', [Validators.required]);
 
-  experienceForm = new FormGroup({
+  experienceForm = new UntypedFormGroup({
     tareaRealizada: this.tareaRealizada,
     empresa: this.empresa,
     imagenEmpresa: this.imagenEmpresa,

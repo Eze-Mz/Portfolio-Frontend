@@ -14,16 +14,6 @@
         <li class="nav-item fs-5" *ngIf="isLogged">
           <a class="nav-link" [routerLink]="currentUserPath" (click)="isMenuCollapsed = true">Mi portolio</a>
         </li>
-        <li class="nav-item" *ngIf="isLogged">
-          <a class="nav-link" [routerLink]="currentUserPath" (click)="isMenuCollapsed = true">
-            <fa-icon [icon]="">
-            </fa-icon>
-          </a>
-        </li>
-        <li class="nav-item" *ngIf="isLogged">
-          <a class="nav-link" [routerLink]="currentUserPath" (click)="isMenuCollapsed = true"><i
-              class="fa-brands fa-linkedin"></i></a>
-        </li>
         <li class="nav-item fs-5">
           <a class="nav-link" routerLink="/lista-portfolio" (click)="isMenuCollapsed = true">Ver portfolios</a>
         </li>

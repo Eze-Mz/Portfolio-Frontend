@@ -55,3 +55,17 @@ svg {
         stroke-dashoffset: var(--fill);
     }
 }
+
+.buttons-skill {
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* acomodar los botones para pantallas más chicas */
+/* @media (max-width: 575.98px) { 
+    .buttons-skill {
+        top: 20%;
+        right: 5%;
+    }
+} */

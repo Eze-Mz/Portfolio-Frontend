@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import ISkill from 'src/app/Models/skill.model';
 import { DatabaseService } from 'src/app/services/database.service';
@@ -15,10 +15,10 @@ export class SkillFormComponent implements OnInit {
   @Input() deleted = false;
   @Input() data!: ISkill;
 
-  skill = new FormControl('', [Validators.required]);
-  percentage = new FormControl('', [Validators.required]);
+  skill = new UntypedFormControl('', [Validators.required]);
+  percentage = new UntypedFormControl('', [Validators.required]);
 
-  skillForm = new FormGroup({
+  skillForm = new UntypedFormGroup({
     skill: this.skill,
     percentage: this.percentage,
   });

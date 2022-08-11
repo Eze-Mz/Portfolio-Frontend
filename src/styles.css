@@ -21,7 +21,7 @@
 }
 
 /* acomodar los botones para pantallas más chicas */
-@media (max-width: 991.98px) { 
+@media (max-width: 575.98px) { 
     .buttons-position {
         top: 20%;
         right: 5%;

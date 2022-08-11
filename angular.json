@@ -103,5 +103,7 @@
       }
     }
   },
-  "defaultProject": "Portfolio-FrontEnd"
+  "cli": {
+    "analytics": "8d2de1c3-e860-4332-a193-b7c8883cc082"
+  }
 }

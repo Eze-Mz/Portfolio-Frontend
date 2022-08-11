@@ -53,7 +53,7 @@ export class ItemComponent implements OnInit {
         break;
       case 'skills':
         this.itemClass =
-          'col-xl-3 col-md-4 my-3 d-flex justify-content-center shadow py-3 border position-relative';
+          'col-xl-3 col-lg-4 col-md-6 my-3 d-flex justify-content-center';
         this.item as IProyect;
         break;
       case 'proyects':

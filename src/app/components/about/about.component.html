@@ -1,17 +1,29 @@
-<div class="col-md-4 d-flex justify-content-evenly flex-md-column position-relative order-sm-0" *ngIf="data">
-  <img class="perfil-img border" src={{this.data.img_perfil}} alt="imagen de perfil" />
-  <div class="d-flex flex-column  justify-content-center">
-    <p class=" fs-4 text-center pt-md-3">{{data.nombre}}</p>
-    <p class="fs-5 text-center">{{data.puesto}}</p>
+<div class="col-12 d-flex justify-content-center background border rounded">
+  <div class="container-fluid">
+    <div class="row">
+      <div class=" col-md-4 d-flex flex-column position-relative" *ngIf="data">
+        <img class="perfil-img border mt-3" src={{data.img_perfil}} alt="imagen de perfil" />
+        <div class="d-flex flex-column  justify-content-center">
+          <p class="fs-3 text-center pt-md-3">{{data.nombre}}</p>
+          <p class="fs-4 text-center">{{data.puesto}}</p>
+        </div>
+      </div>
+      <div class="col-md-8  align-self-center" *ngIf="data">
+        <h3 class="h1">Sobre mí</h3>
+        <p class="fs-4">
+          {{data.sobre_mi}}
+        </p>
+        <h5 *ngIf="data.link_1 || data.link_2">Mis redes:</h5>
+        <a *ngIf="data.link_1" class="text-decoration-none me-2 text-primary" href={{data.link_1}} target="_blank"
+          rel="noopener noreferrer">
+          <fa-icon [icon]="faGithubSquare" size="2x"></fa-icon>
+        </a>
+        <a *ngIf="data.link_2" class="text-decoration-none text-primary" href={{data.link_2}} target=" _blank"
+          rel="noopener noreferrer">
+          <fa-icon [icon]="faLinkedin" size="2x"></fa-icon>
+        </a>
+      </div>
+    </div>
   </div>
-</div>
-<div class="col-md-6 d-flex flex-column ms-lg-4 order-md-2 align-items-center align-items-md-start" *ngIf="data">
-  <a class="fs-5">{{data.link_1}}</a>
-  <a class="fs-5">{{data.link_2}}</a>
-</div>
-<div class="col-md-8 pt-4 align-self-center order-md-1" *ngIf="data">
-  <h3 class="h1">Sobre mí</h3>
-  <p class="fs-4">
-    {{data.sobre_mi}}
-  </p>
+
 </div>

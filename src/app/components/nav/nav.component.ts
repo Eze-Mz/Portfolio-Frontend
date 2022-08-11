@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { faPenClip } from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { AuthUserService } from 'src/app/services/auth-user.service';
 import { DatabaseService } from 'src/app/services/database.service';
 
@@ -14,14 +11,10 @@ export class NavComponent implements OnInit {
   public isMenuCollapsed = true;
   isLogged = false;
   currentUserPath!: string;
-  faGithub = faGithub;
-  faLinkedin = faLinkedinIn;
-  faPenClip = faPenClip;
 
   constructor(
     private auth: AuthUserService,
-    private database: DatabaseService,
-    private router: Router
+    private database: DatabaseService
   ) {}
 
   ngOnInit(): void {

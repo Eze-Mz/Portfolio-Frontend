@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import IUser from 'src/app/Models/user.model';
 import { DatabaseService } from 'src/app/services/database.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
@@ -13,15 +13,15 @@ export class AboutFormComponent implements OnInit {
   @Input() sectionId!: string;
   @Input() data!: IUser;
 
-  nombre = new FormControl('');
-  puesto = new FormControl('');
-  sobreMi = new FormControl('');
-  imgHero = new FormControl('');
-  imgPerfil = new FormControl('');
-  link1 = new FormControl('');
-  link2 = new FormControl('');
+  nombre = new UntypedFormControl('');
+  puesto = new UntypedFormControl('');
+  sobreMi = new UntypedFormControl('');
+  imgHero = new UntypedFormControl('');
+  imgPerfil = new UntypedFormControl('');
+  link1 = new UntypedFormControl('');
+  link2 = new UntypedFormControl('');
 
-  aboutForm = new FormGroup({
+  aboutForm = new UntypedFormGroup({
     nombre: this.nombre,
     puesto: this.puesto,
     sobreMi: this.sobreMi,

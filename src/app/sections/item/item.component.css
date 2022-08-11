@@ -1,0 +1,21 @@
+.proyect-img {
+    max-width: 1000px;
+    max-height: 600px;
+}
+
+@media (min-width: 1200px) { 
+    .proyect-img {
+        max-width: 1600px;
+        max-height: 1200px;
+    }
+ }
+
+.buttons-proyect {
+    right: 5%;
+    top: 10%;
+    transform: translateY(-50%);
+}
+
+.background-icons-proyect {
+    background-color: darkgrey;
+}
