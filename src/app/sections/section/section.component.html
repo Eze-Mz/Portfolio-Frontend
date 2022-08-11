@@ -1,6 +1,7 @@
 <div class="col-11">
     <h3 class="h1">{{sectionTitle}}</h3>
 </div>
-<fa-icon class="col-1 align-self-center" [icon]="faPlus" size="lg" (click)="openModal()"></fa-icon>
+<fa-icon *ngIf="canEdit" class="col-1 align-self-center" [icon]="faPlus" size="lg" (click)="openModal()"></fa-icon>
 
-<app-item *ngFor="let item of itemsList" [item]="item" [sectionId]="sectionId" (changedList)="updateList()"></app-item>
+<app-item *ngFor="let item of itemsList" [item]="item" [sectionId]="sectionId" [canEdit]="canEdit"
+    (changedList)="updateList()"></app-item>

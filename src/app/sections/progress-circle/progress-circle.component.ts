@@ -1,4 +1,13 @@
-import { Component, DoCheck, ElementRef, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  DoCheck,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
+import { faTrash, faPenClip } from '@fortawesome/free-solid-svg-icons';
 import ISkill from 'src/app/Models/skill.model';
 import { ProgressCountService } from 'src/app/services/progress-count.service';
 
@@ -8,9 +17,14 @@ import { ProgressCountService } from 'src/app/services/progress-count.service';
   styleUrls: ['./progress-circle.component.css'],
 })
 export class ProgressCircleComponent implements DoCheck, OnInit {
+  faTrash = faTrash;
+  faPenClip = faPenClip;
   @Input() skillPercentage: number = 0;
   @Input() skill: string = 'skill';
   @Input() item!: ISkill;
+  @Input() canEdit = false;
+  @Output() openModalEdit = new EventEmitter<any>();
+  @Output() openModalDelete = new EventEmitter<any>();
   percentage = 0;
   maxLength: number = parseInt(
     getComputedStyle(document.documentElement).getPropertyValue('--max-length')
@@ -41,5 +55,12 @@ export class ProgressCircleComponent implements DoCheck, OnInit {
     if (this.percentage == this.skillPercentage) {
       this.percentageProgress.unsubscribe();
     }
+  }
+
+  callOpenModalDelete() {
+    this.openModalDelete.emit();
+  }
+  callOpenModalEdit() {
+    this.openModalEdit.emit();
   }
 }

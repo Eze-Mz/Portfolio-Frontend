@@ -1,9 +1,10 @@
 export default interface IProyect {
-  id: number;
+  dataType: string;
+  id_proyecto: number;
   nombre: string;
   tecnologias: string;
-  imagen: string;
-  linkSitio: string;
-  linkRepositorio: string;
+  img_proyecto: string;
+  link_sitio: string;
+  link_repo: string;
   descripcion: string;
 }

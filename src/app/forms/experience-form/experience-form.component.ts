@@ -39,7 +39,7 @@ export class ExperienceFormComponent implements OnInit {
       this.experienceForm.setValue({
         tareaRealizada: this.data.tarea,
         empresa: this.data.empresa,
-        imagenEmpresa: this.data.imagen,
+        imagenEmpresa: this.data.img_empresa,
         tiempoTrabajado: this.data.tiempo,
         descripcion: this.data.descripcion,
       });
@@ -47,13 +47,19 @@ export class ExperienceFormComponent implements OnInit {
   }
 
   addExperience() {
-    const { tareaRealizada, empresa, tiempoTrabajado, descripcion } =
-      this.experienceForm.value;
+    const {
+      tareaRealizada,
+      empresa,
+      tiempoTrabajado,
+      descripcion,
+      imagenEmpresa,
+    } = this.experienceForm.value;
 
     const newExperience = {
+      dataType: this.sectionId,
       tarea: tareaRealizada,
       empresa: empresa,
-      imagen: '',
+      img_empresa: imagenEmpresa,
       tiempo: tiempoTrabajado,
       descripcion: descripcion,
     };
@@ -64,13 +70,21 @@ export class ExperienceFormComponent implements OnInit {
   }
 
   updateExperience() {
-    const { tareaRealizada, empresa, tiempoTrabajado, descripcion } =
-      this.experienceForm.value;
+    const {
+      tareaRealizada,
+      empresa,
+      tiempoTrabajado,
+      descripcion,
+      imagenEmpresa,
+    } = this.experienceForm.value;
 
     this.data.tarea = tareaRealizada;
     this.data.empresa = empresa;
+    this.data.img_empresa = imagenEmpresa;
     this.data.tiempo = tiempoTrabajado;
     this.data.descripcion = descripcion;
+    this.data.dataType = this.sectionId;
+    console.log(this.data);
 
     this.database
       .updateData(this.sectionId, this.data)
@@ -78,6 +92,8 @@ export class ExperienceFormComponent implements OnInit {
   }
 
   deleteExperience() {
+    console.log(this.data.id_exp);
+
     this.database
       .deleteData(this.sectionId, this.data)
       .subscribe(() => this.activeModal.close('list changed'));

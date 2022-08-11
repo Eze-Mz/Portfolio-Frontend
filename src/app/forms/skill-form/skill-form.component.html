@@ -1,1 +1,34 @@
-<p>skill-form works!</p>
+<div *ngIf="!deleted; else deleteForm">
+    <div class="modal-header">
+        <h5 class="modal-title">{{edit? "Editar habilidad" : "Crear nueva habilidad"}}</h5>
+        <button type="button" class="btn-close" (click)="activeModal.close()" aria-label="Close"></button>
+    </div>
+    <form [formGroup]="skillForm" (ngSubmit)="edit? updateSkill(): addSkill()">
+        <div class="modal-body">
+            <div class="form-floating mb-3">
+                <input [formControl]="skill" type="text" class="form-control" id="skill" placeholder="habilidad">
+                <label for="skill">Habilidad</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input [formControl]="percentage" type="number" class="form-control" id="percentage"
+                    placeholder="porcentaje">
+                <label for="percentage">Porcentaje</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="activeModal.close()">Cerrar</button>
+            <button type="submit" class="btn btn-primary">Guardar
+                cambios</button>
+        </div>
+    </form>
+</div>
+
+<ng-template #deleteForm>
+    <div class="modal-header">
+        <h5 class="modal-title">¿Borrar habilidad?</h5>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="activeModal.close()">Salir</button>
+        <button type="submit" class="btn btn-primary" (click)="deleteSkill()">Borrar</button>
+    </div>
+</ng-template>

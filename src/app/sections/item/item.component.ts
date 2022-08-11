@@ -13,7 +13,6 @@ import IEducation from 'src/app/Models/education.model';
 import IExperience from 'src/app/Models/experience.model';
 import IProyect from 'src/app/Models/proyect.model';
 import ISkill from 'src/app/Models/skill.model';
-import { DatabaseService } from 'src/app/services/database.service';
 
 @Component({
   selector: 'app-item',
@@ -23,11 +22,12 @@ import { DatabaseService } from 'src/app/services/database.service';
 export class ItemComponent implements OnInit {
   faTrash = faTrash;
   faPenClip = faPenClip;
+  @Input() canEdit = false;
   @Input() sectionId!: string;
   @Input() item!: IExperience & IEducation & IProyect & ISkill;
   @Output() changedList = new EventEmitter<IExperience>();
   @HostBinding('className') itemClass: string = '';
-  constructor(private modal: NgbModal, private database: DatabaseService) {}
+  constructor(private modal: NgbModal) {}
 
   openModal(edit: boolean, deleted: boolean) {
     const modalRef = this.modal.open(GenericModalComponent);
@@ -37,9 +37,7 @@ export class ItemComponent implements OnInit {
     modalRef.componentInstance.sectionId = this.sectionId;
     modalRef.closed.subscribe((res) => {
       console.log('closed observable');
-      if (true) {
-        this.changedList.emit();
-      }
+      this.changedList.emit();
     });
   }
 
@@ -55,7 +53,7 @@ export class ItemComponent implements OnInit {
         break;
       case 'skills':
         this.itemClass =
-          'col-xl-3 col-md-4 my-3 d-flex justify-content-center shadow py-3 border';
+          'col-xl-3 col-md-4 my-3 d-flex justify-content-center shadow py-3 border position-relative';
         this.item as IProyect;
         break;
       case 'proyects':
@@ -63,5 +61,9 @@ export class ItemComponent implements OnInit {
         this.item as ISkill;
         break;
     }
+  }
+
+  separarTecnologias(tecnologias: string): string[] {
+    return tecnologias.split(',').map((string) => string.trim());
   }
 }

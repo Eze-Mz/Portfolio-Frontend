@@ -1,1 +1,48 @@
-<p>education-form works!</p>
+<div *ngIf="!deleted; else deleteForm">
+    <div class="modal-header">
+        <h5 class="modal-title">{{edit? "Editar educación" : "Crear nueva educación"}}</h5>
+        <button type="button" class="btn-close" (click)="activeModal.close()" aria-label="Close"></button>
+    </div>
+    <form [formGroup]="educationForm" (ngSubmit)="edit? updateEducation(): addEducation()">
+        <div class="modal-body">
+            <div class="form-floating mb-3">
+                <input [formControl]="titulo" type="text" class="form-control" id="titulo" placeholder="Título">
+                <label for="titulo">Título</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input [formControl]="institucion" type="text" class="form-control" id="institucion"
+                    placeholder="Nombre institución">
+                <label for="institucion">Institución</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input [formControl]="imagenInstitucion" type="text" class="form-control" id="imagenInstitucion"
+                    placeholder="inserte la url de la imagen/logo de la institución">
+                <label for="imagenInstitucion">Url de la imagen de la institucion</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input [formControl]="fechas" type="text" class="form-control" id="fechas"
+                    placeholder="Tiempo en la carrera">
+                <label for="fechas">Fechas</label>
+            </div>
+            <div class="form-floating mb-3">
+                <textarea [formControl]="descripcion" class="form-control" placeholder="Descripción estudios"
+                    id="descripción"></textarea>
+                <label for="descripción">Descripción</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="activeModal.close()">Cerrar</button>
+            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+        </div>
+    </form>
+</div>
+
+<ng-template #deleteForm>
+    <div class="modal-header">
+        <h5 class="modal-title">¿Borrar la educación?</h5>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="activeModal.close()">Salir</button>
+        <button type="submit" class="btn btn-primary" (click)="deleteEducation()">Borrar</button>
+    </div>
+</ng-template>

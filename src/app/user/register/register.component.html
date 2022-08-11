@@ -1,0 +1,69 @@
+<app-nav></app-nav>
+
+<div>
+    <div class="container d-flex justify-content-center">
+        <div class="card w-50">
+            <div class="card-header">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a routerLink="/login" class="nav-link">Iniciar sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/register" class="nav-link active">Crear cuenta</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="card-body">
+                <form [formGroup]="registerForm" (ngSubmit)="register($event)" novalidate>
+                    <div class="form-group">
+                        <label for="emailUsuario">Email</label>
+                        <input type="email" name="emailUsuario" id="emailUsuario" class="form-control"
+                            formControlName="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" name="nombre" id="nombre" class="form-control" formControlName="nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="puesto">Puesto</label>
+                        <input type="text" name="puesto" id="puesto" class="form-control" formControlName="puesto">
+                    </div>
+                    <div class="form-group">
+                        <label for="imgPerfil">Url imagen perfil</label>
+                        <input type="text" name="imgPerfil" id="imgPerfil" class="form-control"
+                            formControlName="imgPerfil">
+                    </div>
+                    <div class="form-group">
+                        <label for="sobreMi">Descripción sobre mí</label>
+                        <textarea name="sobreMi" id="" cols="30" rows="10" formControlName="sobreMi"
+                            class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="link1">Links redes</label>
+                        <input type="text" name="link1" id="link1" class="form-control" formControlName="link1">
+                        <input type="text" name="link2" id="link2" class="form-control" formControlName="link2">
+                    </div>
+                    <div class="form-group">
+                        <label for="imgHero">Url imagen hero</label>
+                        <input type="text" name="imgHero" id="imgHero" class="form-control" formControlName="imgHero">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <input type="password" name="password" id="password" class="form-control"
+                            formControlName="password">
+                    </div>
+                    <div class="form-group mt-3">
+                        <button class="btn btn-outline-success w-100" [disabled]="!registerForm.valid">
+                            Crear portfolio
+                        </button>
+                    </div>
+                </form>
+                <div *ngIf="isSubmitted && isRegisterFail" class="alert alert-danger mt-3">
+                    Fallo en el registro: {{errorMsj}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

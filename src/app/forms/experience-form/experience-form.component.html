@@ -20,9 +20,10 @@
                     placeholder="Cantidad de tiempo trabajado">
                 <label for="tiempoTrabajado">Tiempo trabajado</label>
             </div>
-            <div class="mb-3">
-                <label [formControl]="imagenEmpresa" for="formFile" class="form-label">Cambiar imagen</label>
-                <input class="form-control" type="file" id="formFile">
+            <div class="form-floating mb-3">
+                <input [formControl]="imagenEmpresa" type="text" class="form-control" id="imgUrl"
+                    placeholder="inserte la url de la imagen/logo de la empresa">
+                <label for="imgUrl">Url de la imagen</label>
             </div>
             <div class="form-floating mb-3">
                 <textarea [formControl]="descripcion" class="form-control" placeholder="Descripción del trabajo"

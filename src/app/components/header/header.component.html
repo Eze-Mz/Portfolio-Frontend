@@ -1,4 +1,8 @@
-<div class="hero">
-  <h2>Agregar alguna frase</h2>
-  <button class="btn btn-success">Contacto</button>
+<div class="hero position-relative">
+  <fa-icon *ngIf="canEdit" class="pb-4 position-absolute top-0 end-0" [icon]="faPenClip" size="lg"
+    (click)="openModal(false, false)">
+  </fa-icon>
+  <div class="container">
+    <app-about [data]="item"></app-about>
+  </div>
 </div>

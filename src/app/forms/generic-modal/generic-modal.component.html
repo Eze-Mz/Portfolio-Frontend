@@ -1,3 +1,14 @@
 <app-experience-form *ngIf="sectionId === 'experiences'" [data]="data" [sectionId]="sectionId" [edit]="edit"
     [deleted]="deleted">
 </app-experience-form>
+
+<app-about-form *ngIf="sectionId === 'about'" [data]="data" [sectionId]="sectionId"></app-about-form>
+
+<app-education-form *ngIf="sectionId === 'education'" [data]="data" [sectionId]="sectionId" [edit]="edit"
+    [deleted]="deleted">
+</app-education-form>
+
+<app-proyect-form *ngIf="sectionId === 'proyects'" [data]="data" [sectionId]="sectionId" [edit]="edit"
+    [deleted]="deleted"></app-proyect-form>
+<app-skill-form *ngIf="sectionId === 'skills'" [data]="data" [sectionId]="sectionId" [edit]="edit" [deleted]="deleted">
+</app-skill-form>

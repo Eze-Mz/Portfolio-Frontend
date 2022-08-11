@@ -1,5 +1,6 @@
 export default interface ISkill {
-  id: number;
+  dataType: string;
+  id_skill: number;
   habilidad: string;
   porcentaje: number;
 }

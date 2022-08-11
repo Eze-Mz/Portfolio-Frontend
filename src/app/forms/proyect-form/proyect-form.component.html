@@ -1,1 +1,55 @@
-<p>proyect-form works!</p>
+<div *ngIf="!deleted; else deleteForm">
+    <div class="modal-header">
+        <h5 class="modal-title">{{edit? "Editar experiencia" : "Crear nueva experiencia"}}</h5>
+        <button type="button" class="btn-close" (click)="activeModal.close()" aria-label="Close"></button>
+    </div>
+    <form [formGroup]="proyectForm" (ngSubmit)="edit? updateProyect(): addProyect()">
+        <div class="modal-body">
+            <div class="form-floating mb-3">
+                <input [formControl]="nombre" type="text" class="form-control" id="nombre"
+                    placeholder="nombre proyecto">
+                <label for="nombre">Nombre o título del proyecto</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input [formControl]="descripcion" type="text" class="form-control" id="descripcion"
+                    placeholder="descripcion proyecto">
+                <label for="descripcion">Descripción del proyecto</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input [formControl]="tecnologias" type="text" class="form-control" id="tecnologias"
+                    placeholder="tecnologías utilizadas en el proyecto">
+                <label for="tecnologias">Teconologías (separadas por coma)</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input [formControl]="img_proyecto" type="text" class="form-control" id="imgUrl"
+                    placeholder="inserte la url de la imagen del proyecto">
+                <label for="imgUrl">Url de la imagen del proyecto</label>
+            </div>
+            <div class="form-floating mb-3">
+                <textarea [formControl]="link_sitio" class="form-control" placeholder="url del sitio del proyecto"
+                    id="link_sitio"></textarea>
+                <label for="link_sitio">Url del sitio donde se puede acceder al proyecto</label>
+            </div>
+            <div class="form-floating mb-3">
+                <textarea [formControl]="link_repo" class="form-control" placeholder="url del repositorio del proyecto"
+                    id="link_repo"></textarea>
+                <label for="link_repo">Url del repositorio del proyecto</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="activeModal.close()">Cerrar</button>
+            <button type="submit" class="btn btn-primary">Guardar
+                cambios</button>
+        </div>
+    </form>
+</div>
+
+<ng-template #deleteForm>
+    <div class="modal-header">
+        <h5 class="modal-title">¿Borrar el la experiencia?</h5>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="activeModal.close()">Salir</button>
+        <button type="submit" class="btn btn-primary" (click)="deleteProyect()">Borrar</button>
+    </div>
+</ng-template>

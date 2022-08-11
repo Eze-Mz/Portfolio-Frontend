@@ -4,41 +4,40 @@
       <img src="./assets/APLogo-20-20.png" alt="" />
     </a>
 
-    <button
-      class="navbar-toggler"
-      type="button"
-      (click)="isMenuCollapsed = !isMenuCollapsed"
-    >
+    <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
       &#9776;
     </button>
 
-    <div
-      [ngbCollapse]="isMenuCollapsed"
-      class="collapse navbar-collapse justify-content-end"
-    >
+    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse justify-content-end">
       <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link fs-5" href="#" (click)="isMenuCollapsed = true"
-            >Sobre mí</a
-          >
+
+        <li class="nav-item fs-5" *ngIf="isLogged">
+          <a class="nav-link" [routerLink]="currentUserPath" (click)="isMenuCollapsed = true">Mi portolio</a>
+        </li>
+        <li class="nav-item" *ngIf="isLogged">
+          <a class="nav-link" [routerLink]="currentUserPath" (click)="isMenuCollapsed = true">
+            <fa-icon [icon]="">
+            </fa-icon>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="isLogged">
+          <a class="nav-link" [routerLink]="currentUserPath" (click)="isMenuCollapsed = true"><i
+              class="fa-brands fa-linkedin"></i></a>
         </li>
         <li class="nav-item fs-5">
-          <a class="nav-link" href="#" (click)="isMenuCollapsed = true"
-            >Experiencia</a
-          >
+          <a class="nav-link" routerLink="/lista-portfolio" (click)="isMenuCollapsed = true">Ver portfolios</a>
         </li>
-        <li class="nav-item fs-5">
-          <a class="nav-link" href="#" (click)="isMenuCollapsed = true"
-            >Educación</a
-          >
+        <li class="nav-item" *ngIf="!isLogged">
+          <a class="nav-link fs-5" routerLink="/login" (click)="isMenuCollapsed = true">Iniciar sesión</a>
         </li>
-        <li class="nav-item fs-5">
-          <a class="nav-link" href="#" (click)="isMenuCollapsed = true"
-            >Proyectos</a
-          >
+        <li class="nav-item" *ngIf="isLogged">
+          <a class="nav-link fs-5" (click)="isMenuCollapsed = true" (click)="logout()">Cerrar
+            sesión</a>
         </li>
+        <!-- <li class="nav-item" *ngIf="isLogged">
+          <a class="nav-link fs-5" (click)="isMenuCollapsed = true" (click)="deleteAccount()">Eliminar cuenta</a>
+        </li> -->
       </ul>
-      <button class="btn-lg btn-success center-btn">Login</button>
     </div>
   </div>
 </nav>

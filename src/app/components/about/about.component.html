@@ -1,15 +1,17 @@
-<div class="col-md-4 d-flex flex-column position-relative">
-  <img class="perfil-img" src="https://via.placeholder.com/200" alt="imagen de perfil" />
-  <div class="space"></div>
-  <p class="fs-2 text-center pt-3">Nombre</p>
-  <p class="fs-4 text-center">Título</p>
+<div class="col-md-4 d-flex justify-content-evenly flex-md-column position-relative order-sm-0" *ngIf="data">
+  <img class="perfil-img border" src={{this.data.img_perfil}} alt="imagen de perfil" />
+  <div class="d-flex flex-column  justify-content-center">
+    <p class=" fs-4 text-center pt-md-3">{{data.nombre}}</p>
+    <p class="fs-5 text-center">{{data.puesto}}</p>
+  </div>
 </div>
-<div class="col-md-8 pt-4">
+<div class="col-md-6 d-flex flex-column ms-lg-4 order-md-2 align-items-center align-items-md-start" *ngIf="data">
+  <a class="fs-5">{{data.link_1}}</a>
+  <a class="fs-5">{{data.link_2}}</a>
+</div>
+<div class="col-md-8 pt-4 align-self-center order-md-1" *ngIf="data">
   <h3 class="h1">Sobre mí</h3>
   <p class="fs-4">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet nesciunt
-    perspiciatis tenetur repellat beatae cumque, dignissimos debitis delectus ea
-    excepturi, ducimus id asperiores officia nihil quia dolor alias reiciendis
-    voluptas!
+    {{data.sobre_mi}}
   </p>
 </div>

@@ -10,6 +10,16 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SectionsModule } from './sections/sections.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModalsModule } from './forms/forms-modals.module';
+import { LoginComponent } from './user/login/login.component';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { AppRoutingModule } from './app-routing.module';
+import { RegisterComponent } from './user/register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ListaPortfolioComponent } from './components/lista-portfolio/lista-portfolio.component';
+import {
+  interceptorProvider,
+  UserInterceptor,
+} from './interceptors/user.interceptor';
 
 @NgModule({
   declarations: [
@@ -18,6 +28,10 @@ import { FormsModalsModule } from './forms/forms-modals.module';
     NavComponent,
     AboutComponent,
     FooterComponent,
+    LoginComponent,
+    PortfolioComponent,
+    RegisterComponent,
+    ListaPortfolioComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,9 +40,11 @@ import { FormsModalsModule } from './forms/forms-modals.module';
     SectionsModule,
     HttpClientModule,
     FormsModalsModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
   ],
   exports: [],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

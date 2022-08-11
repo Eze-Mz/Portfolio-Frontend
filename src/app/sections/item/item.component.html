@@ -5,17 +5,18 @@
             <h4 class="fs-2 mb-3">{{item.tarea}}</h4>
             <div class="d-flex align-items-center mb-2">
                 <p class="fs-4 me-5 pt-2">{{item.empresa}}</p>
-                <img *ngIf="item.imagen" class="max-size" src="{{item.imagen}}" alt="logo empresa" />
+                <img *ngIf="item.img_empresa" class="max-size" src="{{item.img_empresa}}" alt="logo empresa" />
             </div>
             <p class="fs-4 text-muted">{{item.tiempo}}</p>
         </div>
 
         <div class="col-lg-8 pt-3 pe-5">
+            <!--AGREGAR WORD WRAP: si alguien pone bbbbbbbbb todo junto, no hay nueva línea-->
             <p class="fs-4">
                 {{item.descripcion}}
             </p>
         </div>
-        <div class="position-absolute buttons-position d-flex flex-column width-fit">
+        <div *ngIf="canEdit" class="position-absolute buttons-position d-flex flex-column width-fit">
             <fa-icon class="pb-4" [icon]=" faPenClip" size="lg" (click)="openModal(true, false)"></fa-icon>
             <fa-icon [icon]="faTrash" size="lg" (click)="openModal(false, true)"></fa-icon>
         </div>
@@ -29,7 +30,7 @@
             <h4 class="fs-2 mb-3">{{item.titulo}}</h4>
             <div class="d-flex align-items-center mb-2">
                 <p class="fs-4 me-5 pt-2">{{item.institucion}}</p>
-                <img *ngIf="item.imagen" class="max-size" src="{{item.imagen}}" alt="logo empresa" />
+                <img *ngIf="item.img_inst" class="max-size" src="{{item.img_inst}}" alt="logo institución" />
             </div>
             <p class="fs-4 text-muted">{{item.fechas}}</p>
         </div>
@@ -39,7 +40,7 @@
                 {{item.descripcion}}
             </p>
         </div>
-        <div class="position-absolute buttons-position d-flex flex-column width-fit">
+        <div *ngIf="canEdit" class="position-absolute buttons-position d-flex flex-column width-fit">
             <fa-icon class="pb-4" [icon]="faPenClip" size="lg" (click)="openModal(true, false)"></fa-icon>
             <fa-icon [icon]="faTrash" size="lg" (click)="openModal(false, true)"></fa-icon>
         </div>
@@ -47,18 +48,23 @@
 </div>
 
 <!-- Habilidades -->
-<app-progress-circle *ngIf="sectionId === 'skills'" [item]="item"></app-progress-circle>
+<app-progress-circle *ngIf="sectionId === 'skills'" [item]="item" [canEdit]="canEdit"
+    (openModalEdit)="openModal(true, false)" (openModalDelete)="openModal(false, true)"></app-progress-circle>
 
 <!-- Proyectos -->
-<div class="col" *ngIf="sectionId === 'proyects'">
-    <img class="proyect-img w-100" src="{{item.imagen}}" alt="imagen proyecto" />
-    <h4 class="fs-3">Teconologías</h4>
+<div class="col position-relative" *ngIf="sectionId === 'proyects'">
+    <img class="proyect-img w-100" src="{{item.img_proyecto}}" alt="imagen proyecto" />
+    <h4 class="fs-3">Tecnologías</h4>
     <div class="d-flex justify-content-between w-50">
-        <p class="fs-4" *ngFor="let el of item.tecnologias">{{el}}</p>
+        <p class="fs-4" *ngFor="let el of separarTecnologias(item.tecnologias)">{{el}}</p>
     </div>
 
     <div>
-        <a href="{{item.linkSitio}}" class="btn btn-success text-white">Visita el sitio</a>
-        <a href="{{item.linkRepositorio}}" class="btn btn-success text-white ms-3">Mira el código</a>
+        <a href="{{item.link_sitio}}" class="btn btn-success text-white">Visita el sitio</a>
+        <a href="{{item.link_repo}}" class="btn btn-success text-white ms-3">Mira el código</a>
+    </div>
+    <div *ngIf="canEdit" class="position-absolute buttons-position d-flex flex-column width-fit">
+        <fa-icon class="pb-4" [icon]="faPenClip" size="lg" (click)="openModal(true, false)"></fa-icon>
+        <fa-icon [icon]="faTrash" size="lg" (click)="openModal(false, true)"></fa-icon>
     </div>
 </div>

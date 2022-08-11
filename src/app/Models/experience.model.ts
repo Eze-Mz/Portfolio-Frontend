@@ -1,8 +1,9 @@
 export default interface IExperience {
-  id: number;
+  dataType: string;
+  id_exp: number;
   tarea: string;
   empresa: string;
-  imagen: string;
+  img_empresa: string;
   tiempo: string;
   descripcion: string;
 }

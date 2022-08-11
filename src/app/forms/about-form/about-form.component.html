@@ -1,1 +1,41 @@
-<p>about-form works!</p>
+<div class="modal-header">
+    <h5 class="modal-title">Modificar datos usuario</h5>
+    <button type="button" class="btn-close" (click)="activeModal.close()" aria-label="Close"></button>
+</div>
+<form [formGroup]="aboutForm" (ngSubmit)="updateAbout()">
+    <div class="modal-body">
+        <div class="form-floating mb-3">
+            <input [formControl]="nombre" type="text" class="form-control" id="nombre">
+            <label for="nombre">Nombre</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input [formControl]="puesto" type="text" class="form-control" id="puesto">
+            <label for="puesto">Puesto</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input [formControl]="link1" type="text" class="form-control" id="link1">
+            <label for="link1">Modificar link</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input [formControl]="link2" type="text" class="form-control" id="link2">
+            <label for="link2">Modificar link</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input [formControl]="imgHero" type="text" class="form-control" id="imgHero">
+            <label for="imgHero">Url de la imagen para el hero</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input [formControl]="imgPerfil" type="text" class="form-control" id="imgPerfil">
+            <label for="imgPerfil">Url de la imagen de perfil</label>
+        </div>
+        <div class="form-floating mb-3">
+            <textarea [formControl]="sobreMi" class="form-control area" id="sobreMi"></textarea>
+            <label for="sobreMi">Sobre mí</label>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="activeModal.close()">Cerrar</button>
+        <button type="submit" class="btn btn-primary">Guardar
+            cambios</button>
+    </div>
+</form>

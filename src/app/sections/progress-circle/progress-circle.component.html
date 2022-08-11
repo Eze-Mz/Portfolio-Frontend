@@ -17,3 +17,7 @@
     <circle cx="80" cy="80" r="70" stroke-linecap="round" />
   </svg>
 </div>
+<div *ngIf="canEdit" class="position-absolute buttons-position d-flex flex-column width-fit">
+  <fa-icon class="pb-4" [icon]="faPenClip" size="lg" (click)="callOpenModalEdit()"></fa-icon>
+  <fa-icon [icon]="faTrash" size="lg" (click)="callOpenModalDelete()"></fa-icon>
+</div>

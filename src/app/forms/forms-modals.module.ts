@@ -7,7 +7,6 @@ import { EducationFormComponent } from './education-form/education-form.componen
 import { SkillFormComponent } from './skill-form/skill-form.component';
 import { ProyectFormComponent } from './proyect-form/proyect-form.component';
 import { AboutFormComponent } from './about-form/about-form.component';
-import { LoginFormComponent } from './login-form/login-form.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +16,6 @@ import { LoginFormComponent } from './login-form/login-form.component';
     SkillFormComponent,
     ProyectFormComponent,
     AboutFormComponent,
-    LoginFormComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule, FormsModule],
   exports: [ExperienceFormComponent],
