@@ -7,6 +7,7 @@ import IProyect from '../Models/proyect.model';
 import ISkill from '../Models/skill.model';
 import { AuthUserService } from './auth-user.service';
 import IUser from '../Models/user.model';
+import IPortfolio from '../Models/portfolio.model';
 
 @Injectable({
   providedIn: 'root',
@@ -26,11 +27,16 @@ export class DatabaseService {
   }
 
   constructor(private http: HttpClient, private user: AuthUserService) {}
-  genericUrl = 'http://localhost:3000/';
+  //genericUrl = 'http://localhost:3000/';
 
   getUserData(email: string): Observable<any> {
     const url = `http://localhost:8080/user/${email}`;
     return this.http.get(url);
+  }
+
+  getUsersList(): Observable<IPortfolio[]> {
+    const url = `http://localhost:8080/user/list`;
+    return this.http.get<IPortfolio[]>(url);
   }
 
   updateUserData(data: IUser): Observable<any> {

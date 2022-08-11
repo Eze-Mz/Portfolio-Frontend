@@ -3,20 +3,11 @@
     <h1 class="text-center my-4">Lista de portfolios</h1>
     <table class="table table-dark">
         <tbody>
-            <tr>
-                <th scope="row">test</th>
-                <td>test@test.com</td>
-                <td><a class="btn btn-outline-primary" routerLink="/portfolio/test@test.com">Ver</a></td>
-            </tr>
-            <tr>
-                <th scope="row">eze</th>
-                <td>eze@eze</td>
-                <td><a class="btn btn-outline-primary" routerLink="/portfolio/eze@eze">Ver</a></td>
-            </tr>
-            <tr>
-                <th scope="row">Ezequiel</th>
-                <td>eze.munoz@mi.unc.edu.ar</td>
-                <td><a class="btn btn-outline-primary" routerLink="/portfolio/eze.munoz@mi.unc.edu.ar">Ver</a></td>
+            <tr *ngFor="let user of userList">
+                <th scope="row">{{user.nombre}}</th>
+                <th scope="row">{{user.puesto}}</th>
+                <td>{{user.email}}</td>
+                <td><a class="btn btn-outline-primary" routerLink={{user.link}}>Ver</a></td>
             </tr>
 
         </tbody>
