@@ -10,7 +10,7 @@ const TOKEN_KEY = 'currentUser';
   providedIn: 'root',
 })
 export class AuthUserService {
-  apiUrl = 'http://localhost:8080/auth/login';
+  apiUrl = 'https://git.heroku.com/warm-gorge-04744.git:8080/auth/login';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ export class AuthUserService {
   }
 
   createNewUser(newUser: IUser): Observable<any> {
-    const url = `http://localhost:8080/auth/register`;
+    const url = `https://git.heroku.com/warm-gorge-04744.git:8080/auth/register`;
     return this.http.post(url, newUser, this.httpOptions);
   }
 

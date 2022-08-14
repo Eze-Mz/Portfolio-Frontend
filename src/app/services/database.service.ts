@@ -30,27 +30,27 @@ export class DatabaseService {
   //genericUrl = 'http://localhost:3000/';
 
   getUserData(email: string): Observable<any> {
-    const url = `http://localhost:8080/user/${email}`;
+    const url = `https://git.heroku.com/warm-gorge-04744.git:8080/user/${email}`;
     return this.http.get(url);
   }
 
   getUsersList(): Observable<IPortfolio[]> {
-    const url = `http://localhost:8080/user/list`;
+    const url = `https://git.heroku.com/warm-gorge-04744.git:8080/user/list`;
     return this.http.get<IPortfolio[]>(url);
   }
 
   updateUserData(data: IUser): Observable<any> {
-    const url = `http://localhost:8080/user/${this.getUserId()}`;
+    const url = `https://git.heroku.com/warm-gorge-04744.git:8080/user/${this.getUserId()}`;
     return this.http.put(url, data, this.httpOptions);
   }
 
   deleteUser(): Observable<any> {
-    const url = `http://localhost:8080/user/${this.getUserId()}`;
+    const url = `https://git.heroku.com/warm-gorge-04744.git:8080/user/${this.getUserId()}`;
     return this.http.delete(url);
   }
 
   userExistsByEmail(email: string) {
-    const url = `http://localhost:8080/user/exists/${email}`;
+    const url = `https://git.heroku.com/warm-gorge-04744.git:8080/user/exists/${email}`;
     return this.http.get(url);
   }
 
@@ -59,7 +59,7 @@ export class DatabaseService {
     dataId: string,
     portfolioEmail: string
   ): Observable<(IExperience & IEducation & IProyect & ISkill)[]> {
-    const url = `http://localhost:8080/data/${portfolioEmail}/${dataId}`;
+    const url = `https://git.heroku.com/warm-gorge-04744.git:8080/data/${portfolioEmail}/${dataId}`;
     return this.http.get<(IExperience & IEducation & IProyect & ISkill)[]>(url);
   }
 
@@ -67,7 +67,7 @@ export class DatabaseService {
     dataId: string,
     data: IExperience | IEducation | IProyect | ISkill
   ): Observable<IExperience & IEducation & IProyect & ISkill> {
-    const url = `http://localhost:8080/data/${this.getUserId()}/${dataId}`;
+    const url = `https://git.heroku.com/warm-gorge-04744.git:8080/data/${this.getUserId()}/${dataId}`;
     return this.http.post<IExperience & IEducation & IProyect & ISkill>(
       url,
       data,
@@ -79,7 +79,7 @@ export class DatabaseService {
     dataId: string,
     data: IExperience | IEducation | IProyect | ISkill
   ): Observable<any> {
-    const url = `http://localhost:8080/data/${dataId}/`;
+    const url = `https://git.heroku.com/warm-gorge-04744.git:8080/data/${dataId}/`;
     if (dataId === 'experiences') {
       let experience = data as IExperience;
       return this.http.delete(url + experience.id_exp);
@@ -103,7 +103,7 @@ export class DatabaseService {
     dataId: string,
     data: IExperience | IEducation | IProyect | ISkill
   ): Observable<IExperience | IEducation | IProyect | ISkill> {
-    const url = `http://localhost:8080/data/${this.getUserId()}/${dataId}/`;
+    const url = `https://git.heroku.com/warm-gorge-04744.git/${this.getUserId()}/${dataId}/`;
     if (dataId === 'experiences') {
       let experience = data as IExperience;
       return this.http.put<IExperience>(
