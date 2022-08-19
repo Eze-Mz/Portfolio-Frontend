@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginUser } from 'src/app/Models/login-user';
 import IUser from 'src/app/Models/user.model';
@@ -73,7 +77,6 @@ export class RegisterComponent implements OnInit {
 
     this.auth.createNewUser(newUser).subscribe({
       next: (data) => {
-        console.log(data);
         this.isRegisterFail = false;
         const login = new LoginUser(email, password);
         this.auth.login(login).subscribe((token) => {
@@ -81,11 +84,10 @@ export class RegisterComponent implements OnInit {
           this.router.navigate([`/portfolio/${email}`]);
         });
       },
-      error: (err) => {
+      error: (error) => {
         this.isRegisterFail = true;
         this.isSubmitted = true;
-        this.errorMsj = err.error;
-        console.log(err);
+        this.errorMsj = error.error;
       },
     });
   }

@@ -21,11 +21,11 @@ export class DatabaseService {
     }),
   };
 
-  //user endpoints
   getUserId() {
     this.userId = this.user.getUserId();
     return this.userId;
   }
+  //user endpoints
 
   constructor(private http: HttpClient, private user: AuthUserService) {}
 

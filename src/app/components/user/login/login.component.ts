@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
+import {
+  UntypedFormGroup,
+  UntypedFormBuilder,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginUser } from 'src/app/Models/login-user';
 import { AuthUserService } from 'src/app/services/auth-user.service';
@@ -57,7 +61,7 @@ export class LoginComponent implements OnInit {
         this.isLogged = false;
         this.isLoginFail = true;
         this.isSubmitted = true;
-        this.errorMsj = 'Revise sus credenciales';
+        this.errorMsj = error.error;
       },
     });
   }
