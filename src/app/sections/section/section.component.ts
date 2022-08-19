@@ -32,9 +32,9 @@ export class SectionComponent implements OnInit {
     private auth: AuthUserService
   ) {
     //Se podría hacer un observable o servicio que cuando se cargue el portfolio registre el email para hacer las llamadas a la base de datos con eso, en vez de crear una variable portfolio para cada sección. ¿Cambiaría algo en cuanto a performance?
-    this.route.params.subscribe((params: Params) => {
+    /* this.route.params.subscribe((params: Params) => {
       this.portfolioEmail = params['userEmail'];
-    });
+    }); */
   }
 
   getDataFromDatabase() {
@@ -47,12 +47,15 @@ export class SectionComponent implements OnInit {
     }
   }
 
+  //Bug para tener en cuenta: Los datos se buscar solo cuando el componente se inicia, si cambio de dirección pero el componente es el mismo no se vuelve a buscar los datos, por lo tanto tengo que cambiar los datos cuando me subscribo a una nueva ruta. Lo mismo para la variable canEdit.
   ngOnInit(): void {
-    this.getDataFromDatabase();
-
-    if (this.auth.getUserEmail() === this.portfolioEmail) {
-      this.canEdit = true;
-    }
+    this.route.params.subscribe((params: Params) => {
+      this.portfolioEmail = params['userEmail'];
+      this.getDataFromDatabase();
+      if (this.auth.getUserEmail() === this.portfolioEmail) {
+        this.canEdit = true;
+      }
+    });
   }
 
   updateList() {
@@ -63,7 +66,6 @@ export class SectionComponent implements OnInit {
     const modalRef = this.modal.open(GenericModalComponent);
     modalRef.componentInstance.sectionId = this.sectionId;
     modalRef.closed.subscribe((res) => {
-      console.log('closed observable');
       this.getDataFromDatabase();
     });
   }

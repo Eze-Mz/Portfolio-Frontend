@@ -31,10 +31,10 @@ export class HeaderComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.portfolioEmail = params['userEmail'];
       this.getUserData();
+      if (this.auth.getUserEmail() === this.portfolioEmail) {
+        this.canEdit = true;
+      }
     });
-    if (this.auth.getUserEmail() === this.portfolioEmail) {
-      this.canEdit = true;
-    }
   }
 
   getUserData() {
