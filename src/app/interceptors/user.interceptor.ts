@@ -34,20 +34,6 @@ export class UserInterceptor implements HttpInterceptor {
       },
     });
     return next.handle(intReq);
-
-    //! Depende de cómo implemente el acceso al token el tipo de chequeo que tengo que hacer.
-    //! en el caso del video de arg programa se utiliza un observable que guarda el token
-    //! en otro caso se puede utilizar directamente el token.
-    /* let intReq = req;
-    const token = this.auth.getToken();
-    if (token) {
-      intReq = req.clone({
-        setHeaders: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-    }
-    return next.handle(intReq); */
   }
 }
 

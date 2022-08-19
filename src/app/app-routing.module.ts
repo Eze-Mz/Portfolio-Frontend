@@ -4,8 +4,8 @@ import { ListaPortfolioComponent } from './components/lista-portfolio/lista-port
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { LoginGuard } from './guard/login.guard';
 import { PortfolioGuard } from './guard/portfolio.guard';
-import { LoginComponent } from './user/login/login.component';
-import { RegisterComponent } from './user/register/register.component';
+import { LoginComponent } from './components/user/login/login.component';
+import { RegisterComponent } from './components/user/register/register.component';
 
 const routes: Routes = [
   {

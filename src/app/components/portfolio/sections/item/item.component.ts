@@ -36,7 +36,6 @@ export class ItemComponent implements OnInit {
     modalRef.componentInstance.data = this.item;
     modalRef.componentInstance.sectionId = this.sectionId;
     modalRef.closed.subscribe((res) => {
-      console.log('closed observable');
       this.changedList.emit();
     });
   }

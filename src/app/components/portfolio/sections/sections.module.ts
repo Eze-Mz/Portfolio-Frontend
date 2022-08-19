@@ -4,7 +4,7 @@ import { ProgressCircleComponent } from './progress-circle/progress-circle.compo
 import { SectionComponent } from './section/section.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModalsModule } from '../forms/forms-modals.module';
+import { FormsModalsModule } from '../../../forms/forms-modals.module';
 import { ItemComponent } from './item/item.component';
 
 @NgModule({
