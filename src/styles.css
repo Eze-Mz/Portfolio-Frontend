@@ -27,3 +27,25 @@
         right: 5%;
     }
 }
+
+/* Register and login card width */
+.card-width {
+    width: 75%;
+}
+
+@media (max-width: 575.98px) { 
+    .card-width {
+        width: 100%;
+    }
+ }
+
+ @media (min-width: 992px) { 
+    .card-width {
+        width: 50%;
+    }
+  }
+
+/* textarea formularios */ 
+.area-255 {
+    min-height: 120px !important;
+}

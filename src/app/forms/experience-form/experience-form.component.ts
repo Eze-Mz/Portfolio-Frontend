@@ -1,6 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
+import {
+  UntypedFormGroup,
+  UntypedFormControl,
+  Validators,
+} from '@angular/forms';
 import { DatabaseService } from 'src/app/services/database.service';
 import IExperience from 'src/app/Models/experience.model';
 
@@ -14,6 +18,7 @@ export class ExperienceFormComponent implements OnInit {
   @Input() edit = false;
   @Input() deleted = false;
   @Input() data!: IExperience;
+  onSubmit = false;
 
   tareaRealizada = new UntypedFormControl('', [Validators.required]);
   empresa = new UntypedFormControl('', [Validators.required]);
@@ -47,6 +52,7 @@ export class ExperienceFormComponent implements OnInit {
   }
 
   addExperience() {
+    this.onSubmit = true;
     const {
       tareaRealizada,
       empresa,
@@ -66,7 +72,10 @@ export class ExperienceFormComponent implements OnInit {
 
     this.database
       .addData(this.sectionId, newExperience as IExperience)
-      .subscribe(() => this.activeModal.close(true));
+      .subscribe(() => {
+        this.activeModal.close(true);
+        this.onSubmit = false;
+      });
   }
 
   updateExperience() {

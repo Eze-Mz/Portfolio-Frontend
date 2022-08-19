@@ -1,8 +1,8 @@
 <div class="col-12 d-flex justify-content-center background border rounded">
   <div class="container-fluid">
-    <div class="row">
+    <div class="row about-container">
       <div class=" col-md-4 d-flex flex-column position-relative" *ngIf="data">
-        <img class="perfil-img border mt-3" src={{data.img_perfil}} alt="imagen de perfil" />
+        <img class="perfil-img border mt-3" src={{imgUrl}} alt="imagen de perfil" />
         <div class="d-flex flex-column  justify-content-center">
           <p class="fs-3 text-center pt-md-3">{{data.nombre}}</p>
           <p class="fs-4 text-center">{{data.puesto}}</p>

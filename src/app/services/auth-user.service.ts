@@ -10,7 +10,7 @@ const TOKEN_KEY = 'currentUser';
   providedIn: 'root',
 })
 export class AuthUserService {
-  apiUrl = 'https://warm-gorge-04744.herokuapp.com/auth/login';
+  apiUrl = 'http://localhost:8080';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -25,11 +25,11 @@ export class AuthUserService {
   }
 
   login(credenciales: any): Observable<any> {
-    return this.http.post(this.apiUrl, credenciales);
+    return this.http.post(`${this.apiUrl}/auth/login`, credenciales);
   }
 
   createNewUser(newUser: IUser): Observable<any> {
-    const url = `https://warm-gorge-04744.herokuapp.com/auth/register`;
+    const url = `${this.apiUrl}/auth/register`;
     return this.http.post(url, newUser, this.httpOptions);
   }
 

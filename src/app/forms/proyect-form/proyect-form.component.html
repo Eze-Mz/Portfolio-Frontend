@@ -11,8 +11,8 @@
                 <label for="nombre">Nombre o título del proyecto</label>
             </div>
             <div class="form-floating mb-3">
-                <input [formControl]="descripcion" type="text" class="form-control" id="descripcion"
-                    placeholder="descripcion proyecto">
+                <textarea [formControl]="descripcion" class="form-control area-255" id="descripcion"
+                    placeholder="descripcion proyecto"></textarea>
                 <label for="descripcion">Descripción del proyecto</label>
             </div>
             <div class="form-floating mb-3">
@@ -26,19 +26,19 @@
                 <label for="imgUrl">Url de la imagen del proyecto</label>
             </div>
             <div class="form-floating mb-3">
-                <textarea [formControl]="link_sitio" class="form-control" placeholder="url del sitio del proyecto"
-                    id="link_sitio"></textarea>
+                <input [formControl]="link_sitio" type="url" class="form-control"
+                    placeholder="url del sitio del proyecto" id="link_sitio">
                 <label for="link_sitio">Url del sitio donde se puede acceder al proyecto</label>
             </div>
             <div class="form-floating mb-3">
-                <textarea [formControl]="link_repo" class="form-control" placeholder="url del repositorio del proyecto"
-                    id="link_repo"></textarea>
+                <input [formControl]="link_repo" type="url" class="form-control"
+                    placeholder="url del repositorio del proyecto" id="link_repo">
                 <label for="link_repo">Url del repositorio del proyecto</label>
             </div>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" (click)="activeModal.close()">Cerrar</button>
-            <button type="submit" class="btn btn-primary">Guardar
+            <button type="submit" class="btn btn-primary" [disabled]="onSubmit">Guardar
                 cambios</button>
         </div>
     </form>

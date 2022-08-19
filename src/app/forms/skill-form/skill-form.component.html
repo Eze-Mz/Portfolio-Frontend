@@ -17,7 +17,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" (click)="activeModal.close()">Cerrar</button>
-            <button type="submit" class="btn btn-primary">Guardar
+            <button type="submit" class="btn btn-primary" [disabled]="onSubmit">Guardar
                 cambios</button>
         </div>
     </form>

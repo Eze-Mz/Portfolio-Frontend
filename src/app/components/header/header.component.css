@@ -7,7 +7,7 @@
  flex-shrink: 1,
  flex-basis: auto
  */
- background: url("https://via.placeholder.com/1200") no-repeat center center fixed; 
+ background: no-repeat center center fixed; 
  -webkit-background-size: cover;
  -moz-background-size: cover;
  -o-background-size: cover;

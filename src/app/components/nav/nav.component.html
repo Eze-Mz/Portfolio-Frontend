@@ -20,13 +20,13 @@
         <li class="nav-item" *ngIf="!isLogged">
           <a class="nav-link fs-5" routerLink="/login" (click)="isMenuCollapsed = true">Iniciar sesión</a>
         </li>
-        <li class="nav-item" *ngIf="isLogged">
+        <li class="nav-item pointer" *ngIf="isLogged">
           <a class="nav-link fs-5" (click)="isMenuCollapsed = true" (click)="logout()">Cerrar
             sesión</a>
         </li>
-        <!-- <li class="nav-item" *ngIf="isLogged">
+        <li class="nav-item" *ngIf="isLogged">
           <a class="nav-link fs-5" (click)="isMenuCollapsed = true" (click)="deleteAccount()">Eliminar cuenta</a>
-        </li> -->
+        </li>
       </ul>
     </div>
   </div>

@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./portfolio.component.css'],
 })
 export class PortfolioComponent implements OnInit {
-  //! Considerar que no se pueda acceder a esta sección si el email es inválido
   constructor() {}
 
   ngOnInit(): void {}

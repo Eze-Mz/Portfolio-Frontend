@@ -18,5 +18,9 @@ export class AboutComponent implements OnInit {
   @Input() data!: IUser;
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.data.img_perfil) {
+      this.imgUrl = this.data.img_perfil;
+    }
+  }
 }

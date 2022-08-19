@@ -1,5 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import ISkill from 'src/app/Models/skill.model';
 import { DatabaseService } from 'src/app/services/database.service';
@@ -14,6 +18,7 @@ export class SkillFormComponent implements OnInit {
   @Input() edit = false;
   @Input() deleted = false;
   @Input() data!: ISkill;
+  onSubmit = false;
 
   skill = new UntypedFormControl('', [Validators.required]);
   percentage = new UntypedFormControl('', [Validators.required]);
@@ -38,6 +43,7 @@ export class SkillFormComponent implements OnInit {
   }
 
   addSkill() {
+    this.onSubmit = true;
     const { skill, percentage } = this.skillForm.value;
 
     const newSkill = {
@@ -48,9 +54,10 @@ export class SkillFormComponent implements OnInit {
 
     console.log(newSkill);
 
-    this.database
-      .addData(this.sectionId, newSkill as ISkill)
-      .subscribe(() => this.activeModal.close(true));
+    this.database.addData(this.sectionId, newSkill as ISkill).subscribe(() => {
+      this.activeModal.close(true);
+      this.onSubmit = false;
+    });
   }
 
   updateSkill() {

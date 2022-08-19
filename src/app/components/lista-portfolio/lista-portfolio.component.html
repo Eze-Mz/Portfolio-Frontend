@@ -1,15 +1,21 @@
 <app-nav></app-nav>
 <div class="container">
     <h1 class="text-center my-4">Lista de portfolios</h1>
-    <table class="table table-dark">
-        <tbody>
-            <tr *ngFor="let user of userList">
-                <th scope="row">{{user.nombre}}</th>
-                <th scope="row">{{user.puesto}}</th>
-                <td>{{user.email}}</td>
-                <td><a class="btn btn-outline-primary" routerLink={{user.link}}>Ver</a></td>
-            </tr>
 
-        </tbody>
-    </table>
+    <app-loading *ngIf="isLoading else Table"></app-loading>
+
+    <ng-template #Table>
+        <table class="table table-dark position-relative">
+            <tbody>
+                <tr *ngFor="let user of userList">
+                    <th class="d-none d-sm-table-cell" scope="row">{{user.nombre}}</th>
+                    <th class="d-none d-sm-table-cell" scope="row">{{user.puesto}}</th>
+                    <td>{{user.email}}</td>
+                    <td><a class="btn btn-outline-primary" routerLink={{user.link}}>Ver</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-template>
+
+
 </div>

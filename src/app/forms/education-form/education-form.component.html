@@ -25,14 +25,14 @@
                 <label for="fechas">Fechas</label>
             </div>
             <div class="form-floating mb-3">
-                <textarea [formControl]="descripcion" class="form-control" placeholder="Descripción estudios"
+                <textarea [formControl]="descripcion" class="form-control area-255" placeholder="Descripción estudios"
                     id="descripción"></textarea>
                 <label for="descripción">Descripción</label>
             </div>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" (click)="activeModal.close()">Cerrar</button>
-            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+            <button type="submit" class="btn btn-primary" [disabled]="onSubmit">Guardar cambios</button>
         </div>
     </form>
 </div>

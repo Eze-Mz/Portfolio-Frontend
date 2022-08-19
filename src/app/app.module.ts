@@ -16,10 +16,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { RegisterComponent } from './user/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListaPortfolioComponent } from './components/lista-portfolio/lista-portfolio.component';
-import {
-  interceptorProvider,
-  UserInterceptor,
-} from './interceptors/user.interceptor';
+import { interceptorProvider } from './interceptors/user.interceptor';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +30,7 @@ import {
     PortfolioComponent,
     RegisterComponent,
     ListaPortfolioComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,

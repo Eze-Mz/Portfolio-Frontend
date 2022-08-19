@@ -31,7 +31,7 @@ export class SectionComponent implements OnInit {
     private route: ActivatedRoute,
     private auth: AuthUserService
   ) {
-    //? SE ME OCURRE QUE PODRÍA HABER UN OBSERVABLE O UN SERVICIO QUE CUANDO SE CARGUE EL PORTFOLIO REGISTRE EL EMAIL PARA HACER LAS LLAMADAS A LA BASE DE DATOS CON ESO, EN VEZ DE CREAR LA VARIABLE PORTFOLIO EMAIL PARA CADA SECCIÓN. AHORA, ALGO COMO ESO VALE LA PENA? QUÉ ES MEJOR?
+    //Se podría hacer un observable o servicio que cuando se cargue el portfolio registre el email para hacer las llamadas a la base de datos con eso, en vez de crear una variable portfolio para cada sección. ¿Cambiaría algo en cuanto a performance?
     this.route.params.subscribe((params: Params) => {
       this.portfolioEmail = params['userEmail'];
     });

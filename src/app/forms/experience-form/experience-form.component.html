@@ -26,14 +26,14 @@
                 <label for="imgUrl">Url de la imagen</label>
             </div>
             <div class="form-floating mb-3">
-                <textarea [formControl]="descripcion" class="form-control" placeholder="Descripción del trabajo"
-                    id="descripción"></textarea>
+                <textarea [formControl]="descripcion" class="form-control area-255"
+                    placeholder="Descripción del trabajo" id="descripción"></textarea>
                 <label for="descripción">Descripción del trabajo</label>
             </div>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" (click)="activeModal.close()">Cerrar</button>
-            <button type="submit" class="btn btn-primary">Guardar
+            <button type="submit" class="btn btn-primary" [disabled]="onSubmit">Guardar
                 cambios</button>
         </div>
     </form>

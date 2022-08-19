@@ -13,6 +13,7 @@ import IPortfolio from '../Models/portfolio.model';
   providedIn: 'root',
 })
 export class DatabaseService {
+  apiUrl = 'http://localhost:8080';
   userId!: number;
   httpOptions = {
     headers: new HttpHeaders({
@@ -27,30 +28,29 @@ export class DatabaseService {
   }
 
   constructor(private http: HttpClient, private user: AuthUserService) {}
-  //genericUrl = 'http://localhost:3000/';
 
   getUserData(email: string): Observable<any> {
-    const url = `https://warm-gorge-04744.herokuapp.com/user/${email}`;
+    const url = `${this.apiUrl}/user/${email}`;
     return this.http.get(url);
   }
 
   getUsersList(): Observable<IPortfolio[]> {
-    const url = `https://warm-gorge-04744.herokuapp.com/user/list`;
+    const url = `${this.apiUrl}/user/list`;
     return this.http.get<IPortfolio[]>(url);
   }
 
   updateUserData(data: IUser): Observable<any> {
-    const url = `https://warm-gorge-04744.herokuapp.com/user/${this.getUserId()}`;
+    const url = `${this.apiUrl}/user/${this.getUserId()}`;
     return this.http.put(url, data, this.httpOptions);
   }
 
   deleteUser(): Observable<any> {
-    const url = `https://warm-gorge-04744.herokuapp.com/user/${this.getUserId()}`;
+    const url = `${this.apiUrl}/user/${this.getUserId()}`;
     return this.http.delete(url);
   }
 
   userExistsByEmail(email: string) {
-    const url = `https://warm-gorge-04744.herokuapp.com/user/exists/${email}`;
+    const url = `${this.apiUrl}/user/exists/${email}`;
     return this.http.get(url);
   }
 
@@ -59,7 +59,7 @@ export class DatabaseService {
     dataId: string,
     portfolioEmail: string
   ): Observable<(IExperience & IEducation & IProyect & ISkill)[]> {
-    const url = `https://warm-gorge-04744.herokuapp.com/data/${portfolioEmail}/${dataId}`;
+    const url = `${this.apiUrl}/data/${portfolioEmail}/${dataId}`;
     return this.http.get<(IExperience & IEducation & IProyect & ISkill)[]>(url);
   }
 
@@ -67,7 +67,7 @@ export class DatabaseService {
     dataId: string,
     data: IExperience | IEducation | IProyect | ISkill
   ): Observable<IExperience & IEducation & IProyect & ISkill> {
-    const url = `https://warm-gorge-04744.herokuapp.com/data/${this.getUserId()}/${dataId}`;
+    const url = `${this.apiUrl}/data/${this.getUserId()}/${dataId}`;
     return this.http.post<IExperience & IEducation & IProyect & ISkill>(
       url,
       data,
@@ -79,7 +79,7 @@ export class DatabaseService {
     dataId: string,
     data: IExperience | IEducation | IProyect | ISkill
   ): Observable<any> {
-    const url = `https://warm-gorge-04744.herokuapp.com/data/${dataId}/`;
+    const url = `${this.apiUrl}/data/${dataId}/`;
     if (dataId === 'experiences') {
       let experience = data as IExperience;
       return this.http.delete(url + experience.id_exp);
@@ -103,7 +103,7 @@ export class DatabaseService {
     dataId: string,
     data: IExperience | IEducation | IProyect | ISkill
   ): Observable<IExperience | IEducation | IProyect | ISkill> {
-    const url = `https://warm-gorge-04744.herokuapp.com/data/${this.getUserId()}/${dataId}/`;
+    const url = `${this.apiUrl}/data/${this.getUserId()}/${dataId}/`;
     if (dataId === 'experiences') {
       let experience = data as IExperience;
       return this.http.put<IExperience>(

@@ -13,6 +13,7 @@ import { DatabaseService } from 'src/app/services/database.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+  isLoading = false;
   canEdit = false;
   sectionId = 'about';
   portfolioEmail: string = '';
@@ -37,11 +38,13 @@ export class HeaderComponent implements OnInit {
   }
 
   getUserData() {
+    this.isLoading = true;
     return this.database.getUserData(this.portfolioEmail).subscribe((data) => {
       this.item = data;
-      if (data.img_hero) {
-        this.imgUrl = `url(${data.img_hero})`;
-      }
+      data.img_hero
+        ? (this.imgUrl = `url(${data.img_hero})`)
+        : (this.imgUrl = `url("https://via.placeholder.com/1200")`);
+      this.isLoading = false;
     });
   }
 

@@ -11,6 +11,10 @@
         left: 50%;
         transform: translate(-50%, -50%); */
     }
+
+    .about-container {
+        min-width: 640px;
+    }
 }
 @media (max-width: 767.98px) {
     .perfil-img {

@@ -1,8 +1,12 @@
-<div class="hero position-relative">
-  <fa-icon role='button' *ngIf="canEdit" class="position-pen-about" [icon]="faPenClip" size="lg"
-    (click)="openModal(false, false)">
-  </fa-icon>
-  <div class="container">
-    <app-about [data]="item"></app-about>
+<app-loading *ngIf="isLoading else About"></app-loading>
+
+<ng-template #About>
+  <div class="hero position-relative">
+    <fa-icon role='button' *ngIf="canEdit" class="position-pen-about" [icon]="faPenClip" size="lg"
+      (click)="openModal(false, false)">
+    </fa-icon>
+    <div class="container">
+      <app-about [data]="item"></app-about>
+    </div>
   </div>
-</div>
+</ng-template>

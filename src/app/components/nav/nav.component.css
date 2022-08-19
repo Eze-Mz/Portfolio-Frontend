@@ -16,3 +16,7 @@ img {
 :host {
     flex: 0 1 auto;
 }
+
+.pointer {
+    cursor: pointer;
+}

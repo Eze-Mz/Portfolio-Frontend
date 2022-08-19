@@ -10,6 +10,7 @@ import { DatabaseService } from 'src/app/services/database.service';
 export class ListaPortfolioComponent implements OnInit {
   userList!: IPortfolio[];
   userLinks!: string[];
+  isLoading = false;
 
   constructor(private database: DatabaseService) {}
 
@@ -18,9 +19,11 @@ export class ListaPortfolioComponent implements OnInit {
   }
 
   getUsersList() {
+    this.isLoading = true;
     this.database.getUsersList().subscribe({
       next: (list) => {
         this.userList = list;
+        this.isLoading = false;
       },
     });
   }

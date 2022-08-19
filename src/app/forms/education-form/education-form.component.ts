@@ -1,5 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import IEducation from 'src/app/Models/education.model';
 import { DatabaseService } from 'src/app/services/database.service';
@@ -14,6 +18,7 @@ export class EducationFormComponent implements OnInit {
   @Input() edit = false;
   @Input() deleted = false;
   @Input() data!: IEducation;
+  onSubmit = false;
 
   titulo = new UntypedFormControl('', [Validators.required]);
   institucion = new UntypedFormControl('', [Validators.required]);
@@ -49,6 +54,7 @@ export class EducationFormComponent implements OnInit {
   }
 
   addEducation() {
+    this.onSubmit = true;
     const { titulo, institucion, imagenInstitucion, descripcion, fechas } =
       this.educationForm.value;
 
@@ -61,12 +67,11 @@ export class EducationFormComponent implements OnInit {
       descripcion: descripcion,
     };
 
-    console.log(this.sectionId);
-
     this.database
       .addData(this.sectionId, newEducation as IEducation)
       .subscribe((data) => {
         this.activeModal.close(true);
+        this.onSubmit = false;
       });
   }
 

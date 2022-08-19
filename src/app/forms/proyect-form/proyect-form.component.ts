@@ -1,5 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import IProyect from 'src/app/Models/proyect.model';
 import { DatabaseService } from 'src/app/services/database.service';
@@ -14,6 +18,7 @@ export class ProyectFormComponent implements OnInit {
   @Input() edit = false;
   @Input() deleted = false;
   @Input() data!: IProyect;
+  onSubmit = false;
 
   nombre = new UntypedFormControl('', [Validators.required]);
   tecnologias = new UntypedFormControl('');
@@ -50,6 +55,7 @@ export class ProyectFormComponent implements OnInit {
   }
 
   addProyect() {
+    this.onSubmit = true;
     const {
       nombre,
       tecnologias,
@@ -71,7 +77,10 @@ export class ProyectFormComponent implements OnInit {
 
     this.database
       .addData(this.sectionId, newProyect as IProyect)
-      .subscribe(() => this.activeModal.close(true));
+      .subscribe(() => {
+        this.activeModal.close(true);
+        this.onSubmit = false;
+      });
   }
 
   updateProyect() {
