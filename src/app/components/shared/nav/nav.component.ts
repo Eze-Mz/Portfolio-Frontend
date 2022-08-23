@@ -12,10 +12,7 @@ export class NavComponent implements OnInit {
   isLogged = false;
   currentUserPath!: string;
 
-  constructor(
-    private auth: AuthUserService,
-    private database: DatabaseService
-  ) {}
+  constructor(private auth: AuthUserService) {}
 
   ngOnInit(): void {
     this.isLogged = this.auth.isLogged();
@@ -24,14 +21,5 @@ export class NavComponent implements OnInit {
 
   logout() {
     this.auth.logout();
-  }
-
-  //al eliminar la cuenta lo básico que se me ocurre es:
-  // 1. redirigir al usuario
-  // 2. limpiar el storage
-  deleteAccount() {
-    this.database.deleteUser().subscribe(() => {
-      this.auth.logout();
-    });
   }
 }
