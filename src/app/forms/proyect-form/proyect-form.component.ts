@@ -99,7 +99,6 @@ export class ProyectFormComponent implements OnInit {
     this.data.link_repo = link_repo;
     this.data.descripcion = descripcion;
     this.data.dataType = this.sectionId;
-    console.log(this.data);
 
     this.database
       .updateData(this.sectionId, this.data)

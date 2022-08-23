@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import IUser from '../Models/user.model';
 
 const TOKEN_KEY = 'currentUser';
@@ -10,7 +11,7 @@ const TOKEN_KEY = 'currentUser';
   providedIn: 'root',
 })
 export class AuthUserService {
-  apiUrl = 'http://localhost:8080';
+  apiUrl = environment.apiUrl;
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',

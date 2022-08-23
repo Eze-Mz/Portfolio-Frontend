@@ -1,5 +1,5 @@
 <app-nav></app-nav>
-<div class="container d-flex justify-content-center mt-5">
+<div class="container d-flex justify-content-center mt-5 mb-5">
     <div class="card card-width">
         <div class=" card-header">
             <ul class="nav nav-tabs">
@@ -13,19 +13,22 @@
 
         </div>
         <div class="card-body">
-            <form [formGroup]="registerForm" (ngSubmit)="register($event)" novalidate>
+            <form [formGroup]="registerForm" (ngSubmit)="register($event)" class="needs-validation" novalidate>
                 <div class="form-group">
                     <label for="emailUsuario">Email</label>
                     <input type="email" name="emailUsuario" id="emailUsuario" class="form-control"
-                        formControlName="email">
+                        formControlName="email"
+                        [ngClass]="Email?.touched && Email?.invalid ? 'is-invalid' : Email?.valid ? 'is-valid' : ''">
                 </div>
                 <div class="form-group">
                     <label for="nombre">Nombre</label>
-                    <input type="text" name="nombre" id="nombre" class="form-control" formControlName="nombre">
+                    <input type="text" name="nombre" id="nombre" class="form-control" formControlName="nombre"
+                        [ngClass]="Nombre?.touched && Nombre?.invalid ? 'is-invalid' : Nombre?.valid ? 'is-valid' : ''">
                 </div>
                 <div class="form-group">
                     <label for="puesto">Puesto</label>
-                    <input type="text" name="puesto" id="puesto" class="form-control" formControlName="puesto">
+                    <input type="text" name="puesto" id="puesto" class="form-control" formControlName="puesto"
+                        [ngClass]="Puesto?.touched && Puesto?.invalid ? 'is-invalid' : Puesto?.valid ? 'is-valid' : ''">
                 </div>
                 <div class="form-group">
                     <label for="imgPerfil">Url imagen perfil</label>
@@ -38,7 +41,7 @@
                 </div>
                 <div class="form-group">
                     <label for="link1">Links redes</label>
-                    <input type="text" name="link1" id="link1" class="form-control" formControlName="link1">
+                    <input type="text" name="link1" id="link1" class="form-control mb-2" formControlName="link1">
                     <input type="text" name="link2" id="link2" class="form-control" formControlName="link2">
                 </div>
                 <div class="form-group">
@@ -47,8 +50,8 @@
                 </div>
                 <div class="form-group">
                     <label for="password">Contraseña</label>
-                    <input type="password" name="password" id="password" class="form-control"
-                        formControlName="password">
+                    <input type="password" name="password" id="password" class="form-control" formControlName="password"
+                        [ngClass]="Password?.touched && Password?.invalid ? 'is-invalid' : Password?.valid ? 'is-valid' : ''">
                 </div>
                 <div class="form-group mt-3">
                     <button class="btn btn-outline-success w-100" [disabled]="!registerForm.valid">
@@ -62,3 +65,4 @@
         </div>
     </div>
 </div>
+<app-footer></app-footer>

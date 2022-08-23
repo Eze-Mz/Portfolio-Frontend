@@ -66,7 +66,6 @@ export class SkillFormComponent implements OnInit {
     this.data.habilidad = skill;
     this.data.porcentaje = percentage;
     this.data.dataType = this.sectionId;
-    console.log(this.data);
 
     this.database
       .updateData(this.sectionId, this.data)

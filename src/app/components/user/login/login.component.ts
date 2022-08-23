@@ -47,10 +47,10 @@ export class LoginComponent implements OnInit {
     return this.loginForm.get('password');
   }
 
-  async login(event: Event) {
+  login(event: Event) {
     event.preventDefault;
     this.loginUser = new LoginUser(this.Email?.value, this.Password?.value);
-    await this.auth.login(this.loginUser).subscribe({
+    this.auth.login(this.loginUser).subscribe({
       next: (data) => {
         this.isLogged = true;
         this.isLoginFail = false;

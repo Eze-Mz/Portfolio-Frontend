@@ -35,10 +35,26 @@ export class RegisterComponent implements OnInit {
       nombre: ['', [Validators.required]],
       imgHero: [''],
       imgPerfil: [''],
-      sobreMi: ['', [Validators.required]],
+      sobreMi: [''],
       link1: [''],
       link2: [''],
     });
+  }
+
+  public get Email() {
+    return this.registerForm.get('email');
+  }
+
+  public get Password() {
+    return this.registerForm.get('password');
+  }
+
+  public get Nombre() {
+    return this.registerForm.get('nombre');
+  }
+
+  public get Puesto() {
+    return this.registerForm.get('puesto');
   }
 
   ngOnInit(): void {
@@ -87,7 +103,7 @@ export class RegisterComponent implements OnInit {
       error: (error) => {
         this.isRegisterFail = true;
         this.isSubmitted = true;
-        this.errorMsj = error.error;
+        this.errorMsj = JSON.stringify(error.error);
       },
     });
   }

@@ -7,6 +7,7 @@ import { EducationFormComponent } from './education-form/education-form.componen
 import { SkillFormComponent } from './skill-form/skill-form.component';
 import { ProyectFormComponent } from './proyect-form/proyect-form.component';
 import { AboutFormComponent } from './about-form/about-form.component';
+import { DeleteFormComponent } from './delete-form/delete-form.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { AboutFormComponent } from './about-form/about-form.component';
     SkillFormComponent,
     ProyectFormComponent,
     AboutFormComponent,
+    DeleteFormComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule, FormsModule],
   exports: [ExperienceFormComponent],

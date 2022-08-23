@@ -1,1 +1,9 @@
-<p>footer works!</p>
+<footer class="container-fluid position-absolute"
+    [ngClass]="!(isPortfolioComponent || isRegisterComponent) ? 'position-absolute position-footer' : ''">
+    <div class="d-flex justify-content-center position-relative">
+        <p>&copy;2022 - Ezequiel Muñoz</p>
+        <button class="btn btn-outline-danger btn-sm position-absolute top-50 end-0 translate-middle-y"
+            *ngIf="isLogged && currentUserPortfolio" (click)="openModal()">Eliminar
+            cuenta</button>
+    </div>
+</footer>

@@ -8,12 +8,13 @@ import ISkill from '../Models/skill.model';
 import { AuthUserService } from './auth-user.service';
 import IUser from '../Models/user.model';
 import IPortfolio from '../Models/portfolio.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DatabaseService {
-  apiUrl = 'http://localhost:8080';
+  apiUrl = environment.apiUrl;
   userId!: number;
   httpOptions = {
     headers: new HttpHeaders({
