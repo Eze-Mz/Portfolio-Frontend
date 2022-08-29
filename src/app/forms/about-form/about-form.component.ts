@@ -1,5 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import {
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
 import IUser from 'src/app/Models/user.model';
 import { DatabaseService } from 'src/app/services/database.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
@@ -15,7 +19,7 @@ export class AboutFormComponent implements OnInit {
 
   nombre = new UntypedFormControl('');
   puesto = new UntypedFormControl('');
-  sobreMi = new UntypedFormControl('');
+  sobreMi = new UntypedFormControl('', [Validators.maxLength(255)]);
   imgHero = new UntypedFormControl('');
   imgPerfil = new UntypedFormControl('');
   link1 = new UntypedFormControl('');

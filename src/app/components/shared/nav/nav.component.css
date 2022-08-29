@@ -11,7 +11,11 @@ img {
  .center-btn {
      margin: 0 auto;
      display: block;
- }   
+ }  
+ .btn-mb-custom {
+    margin-bottom: .5rem;
+ }
+ 
 }
 :host {
     flex: 0 1 auto;
@@ -19,4 +23,9 @@ img {
 
 .pointer {
     cursor: pointer;
+}
+
+.btn-custom {
+    border: none;
+    background-color: #d8d8d8;
 }

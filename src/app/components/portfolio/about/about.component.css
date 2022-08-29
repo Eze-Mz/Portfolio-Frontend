@@ -24,7 +24,12 @@
         margin: auto;
         border-radius: 50%;
     }
-}
+
+    p {
+        font-size: 1rem!important;
+        margin-bottom: .5rem;
+    }
+    }
 
 .background {
     background-color: rgb(0,0,0); 

@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
       nombre: ['', [Validators.required]],
       imgHero: [''],
       imgPerfil: [''],
-      sobreMi: [''],
+      sobreMi: ['', Validators.maxLength(255)],
       link1: [''],
       link2: [''],
     });
@@ -55,6 +55,10 @@ export class RegisterComponent implements OnInit {
 
   public get Puesto() {
     return this.registerForm.get('puesto');
+  }
+
+  public get sobreMi() {
+    return this.registerForm.get('sobreMi');
   }
 
   ngOnInit(): void {

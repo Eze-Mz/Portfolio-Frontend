@@ -19,12 +19,12 @@ export class ListaPortfolioComponent implements OnInit {
   }
 
   getUsersList() {
-    this.isLoading = true;
     this.database.getUsersList().subscribe({
       next: (list) => {
         this.userList = list;
         this.isLoading = false;
       },
     });
+    this.isLoading = true;
   }
 }

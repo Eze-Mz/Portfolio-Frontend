@@ -11,17 +11,24 @@
     <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse justify-content-end">
       <ul class="navbar-nav">
 
-        <li class="nav-item fs-5" *ngIf="isLogged">
-          <a class="nav-link" [routerLink]="currentUserPath" (click)="isMenuCollapsed = true">Mi portolio</a>
+        <li class="nav-item" *ngIf="isLogged">
+          <a class="nav-link btn btn-light ms-2 fs-6 fw-bold btn-custom btn-mb-custom" [routerLink]="currentUserPath"
+            (click)="isMenuCollapsed = true">Mi
+            portolio</a>
         </li>
-        <li class="nav-item fs-5">
-          <a class="nav-link" routerLink="/lista-portfolio" (click)="isMenuCollapsed = true">Ver portfolios</a>
+        <li class="nav-item">
+          <a class="nav-link btn btn-light ms-2 fs-6 fw-bold btn-custom btn-mb-custom" routerLink="/lista-portfolio"
+            (click)="isMenuCollapsed = true">Ver
+            portfolios</a>
         </li>
         <li class="nav-item" *ngIf="!isLogged">
-          <a class="nav-link fs-5" routerLink="/login" (click)="isMenuCollapsed = true">Iniciar sesión</a>
+          <a class="nav-link btn btn-light ms-2 fs-6 fw-bold btn-custom btn-mb-custom" routerLink="/login"
+            (click)="isMenuCollapsed = true">Iniciar
+            sesión</a>
         </li>
         <li class="nav-item pointer" *ngIf="isLogged">
-          <a class="nav-link fs-5" (click)="isMenuCollapsed = true" (click)="logout()">Cerrar
+          <a class="nav-link btn btn-light ms-2 fs-6 fw-bold btn-custom btn-mb-custom" (click)="isMenuCollapsed = true"
+            (click)="logout()">Cerrar
             sesión</a>
         </li>
       </ul>

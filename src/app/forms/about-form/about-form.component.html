@@ -29,8 +29,12 @@
             <label for="imgPerfil">Url de la imagen de perfil</label>
         </div>
         <div class="form-floating mb-3">
-            <textarea [formControl]="sobreMi" class="form-control area-255" id="sobreMi"></textarea>
+            <textarea [formControl]="sobreMi" class="form-control area-255" id="sobreMi"
+                [ngClass]="sobreMi.invalid ? 'is-invalid' : ''"></textarea>
             <label for="sobreMi">Sobre mí</label>
+            <div class="invalid-feedback">
+                El texto debe tener 255 caracteres o menos.
+            </div>
         </div>
     </div>
     <div class="modal-footer">
